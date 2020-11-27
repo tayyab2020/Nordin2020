@@ -2,12 +2,12 @@
 
 return [
 
-    'Home' => 'Thuis',
-    'All Properties' => 'Woningaanbod',
-    'Agents' => 'Makelaars',
-    'New Constructions' => 'Nieuwbouwprojecten',
-    'Home Exchange' => 'Woningruil',
-    'Moving Tips' => 'Verhuistips',
+    'Home' => 'Home',
+    'All Properties' => 'Bewindvoering',
+    'Agents' => 'Mentorschap',
+    'New Constructions' => 'Curatele',
+    'Home Exchange' => 'Tarieven',
+    'Moving Tips' => 'Downloads',
     'Expats' => 'Expats',
     'My Account' => 'Mijn account',
     'Dashboard' => 'Dashboard',

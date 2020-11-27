@@ -34,45 +34,8 @@
             <li class="{{classActivePathPublic('nieuwbouwprojecten')}}"><a href="{{ route('newconstructions-front') }}">{{__('text.New Constructions')}}</a></li>
             <li class="{{classActivePathPublic('woningruil')}}"><a href="{{ route('homeexchange-front') }}">{{__('text.Home Exchange')}}</a></li>
             <li class="{{classActivePathPublic('verhuistips')}}"><a href="{{ route('front-moving-tips') }}">{{__('text.Moving Tips')}}</a></li>
-            <li class="{{classActivePathPublic('expats')}}"><a href="{{ URL::to('expats/') }}">{{__('text.Expats')}}</a></li>
 
-             @if(Auth::check())
-
-             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{__('text.My Account')}} <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ URL::to('admin/dashboard/') }}">{{__('text.Dashboard')}}</a></li>
-                <li><a href="{{ URL::to('admin/profile/') }}">{{__('text.Profile')}}</a></li>
-                <li><a href="{{ URL::to('logout') }}">{{__('text.Logout')}}</a></li>
-
-              </ul>
-            </li>
-
-                  @if(Auth::user()->usertype=='Users')
-
-                      <li><a href="{{ URL::to('addhomeexchange') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a>
-                          <span style="display: block;text-align: center;" class="below-btn">{{__('text.Post property button')}}</span>
-                      </li>
-
-                  @else
-
-                      <li><a href="{{ URL::to('addproperty') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a>
-                          <span style="display: block;text-align: center;" class="below-btn">{{__('text.Post property button')}}</span>
-                      </li>
-
-                  @endif
-
-             @else
-                  <li>
-                      <i style="font-size: 18px;border-left: 1px solid #a5a1a1;padding-left: 15px;" class="fas fa-user"></i>
-                      <a href="{{ URL::to('login') }}" style="display: inline-block;padding-left: 5px;padding-right: 5px;">{{__('text.Sign in')}}</a><span> / </span>
-                      <a href="{{ URL::to('accountaanmaken') }}" style="display: inline-block;padding-left: 5px;padding-right: 5px;">{{__('text.Sign up')}}</a>
-                  </li>
-            	<li><a href="{{ URL::to('login') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a>
-                    <span style="display: block;text-align: center;" class="below-btn">{{__('text.Post property button')}}</span>
-                </li>
-             @endif
-
+              <li><a href="{{ URL::to('login') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a></li>
 
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -81,6 +44,11 @@
    <!-- end:navbar -->
 
 <style>
+
+    .navbar-default .navbar-brand::after
+    {
+        display: none;
+    }
 
     @media screen and (max-width: 767px)
     {

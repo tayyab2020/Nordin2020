@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Blogs;
 use App\cookies;
 use App\Expats;
+use App\faqs;
 use App\footer_pages;
 use App\HomepageIcons;
 use App\moving_tips;
@@ -933,115 +934,9 @@ class IndexController extends Controller
             return redirect('install');
         }
 
-    	$city_list = City::where('status','1')->orderBy('city_name')->get();
+        $faqs = faqs::orderBy('id', 'desc')->take(5)->get();
 
-		$propertieslist = Properties::leftjoin('users','users.id','=','properties.user_id')->where('properties.status','1')->orderBy('properties.id', 'desc')->select('properties.*','users.company_name','users.image_icon','users.id as user_id','users.landlord')->get();
-
-		/*$testimonials = Testimonials::orderBy('id', 'desc')->get();*/
-
-		$partners = Partners::orderBy('id', 'desc')->get();
-
-        $blogs = Blogs::orderBy('id', 'desc')->get();
-
-		$top_members = User::withCount('properties')->where('users.usertype','=','Agents')->where('users.status',1)->where('users.landlord','!=',1)->having('properties_count', '>', 0)->orderBy('properties_count', 'desc')->get();
-
-		$top_properties = Properties::orderBy('views', 'desc')->get();
-
-		$content = HomepageIcons::orderBy('id','asc')->get();
-
-		$most_viewed = Properties::orderBy('views','desc')->first();
-
-		$heading = Settings::where('id',1)->first();
-
-        date_default_timezone_set("Europe/Amsterdam");
-
-        $i = 0;
-
-        foreach($propertieslist as $key)
-        {
-
-            $time_ago        = strtotime($key->created_at);
-            $current_time    = time();
-            $time_difference = $current_time - $time_ago;
-            $seconds         = $time_difference;
-
-            $minutes = round($seconds / 60); // value 60 is seconds
-            $hours   = round($seconds / 3600); //value 3600 is 60 minutes * 60 sec
-            $days    = round($seconds / 86400); //86400 = 24 * 60 * 60;
-            $weeks   = round($seconds / 604800); // 7*24*60*60;
-            $months  = round($seconds / 2629440); //((365+365+365+365+366)/5/12)*24*60*60
-            $years   = round($seconds / 31553280); //(365+365+365+365+366)/5 * 24 * 60 * 60
-
-
-            if ($seconds <= 60){
-
-                $listed = __('text.Listed just now');
-
-            } else if ($minutes <= 60){
-
-                if ($minutes == 1){
-
-                    $listed = __('text.Listed one minute ago');
-
-                } else {
-
-                    $listed = __('text.Listed minutes ago',['minutes' => $minutes]);
-
-                }
-
-            } else if ($hours <= 24){
-
-                if ($hours == 1){
-
-                    $listed = __('text.Listed an hour ago');
-
-                } else {
-
-                    $listed = __('text.Listed hrs ago',['hours' => $hours]);
-
-                }
-
-            } else if ($days <= 7){
-
-                if ($days == 1){
-
-                    $listed = __('text.Listed yesterday');
-
-                } else {
-
-                    $listed = __('text.Listed days ago',['days' => $days]);
-
-                }
-
-            } else if ($weeks <= 4.3){
-
-                if ($weeks == 1){
-
-                    $listed = __('text.Listed this week');
-
-                } else {
-
-                    $listed = __('text.Listed this month');
-
-                }
-
-            }
-            else
-            {
-                $listed = '';
-            }
-
-
-
-            $propertieslist[$i]->listed = $listed;
-
-            $i = $i + 1;
-
-        }
-
-        $cookie = cookies::where('ip',\Request::ip())->first();
-
-        return view('pages.index',compact('cookie','propertieslist','blogs', 'heading', 'most_viewed', 'partners','city_list','top_members','top_properties','content'));
+        return view('pages.index',compact('faqs'));
     }
 
     public function Blogs()
