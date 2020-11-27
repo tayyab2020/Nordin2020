@@ -25,18 +25,13 @@
             </button>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="{{classActivePathPublic('')}}"><a href="{{ URL::to('/') }}">{{__('text.Home')}}</a></li>
-        	<li class="{{classActivePathPublic('bewindvoering')}}"><a href="{{route('Bewindvoering')}}">Bewindvoering</a></li>
-            {{--<li class="{{classActivePathPublic('featured')}}"><a href="{{ URL::to('featured/') }}">Featured</a></li>--}}
-            {{--<li class="{{classActivePathPublic('sale')}}"><a href="{{ URL::to('sale/') }}">Sale</a></li>
-            <li class="{{classActivePathPublic('rent')}}"><a href="{{ URL::to('rent/') }}">Rent</a></li>--}}
-            <li class="{{classActivePathPublic('mentorschap')}}"><a href="{{route('Mentorschap')}}">Mentorschap</a></li>
-            <li class="{{classActivePathPublic('curatele')}}"><a href="{{ route('Curatele') }}">Curatele</a></li>
-            <li class="{{classActivePathPublic('tarieven')}}"><a href="{{ route('Tarieven') }}">Tarieven</a></li>
-            <li class="{{classActivePathPublic('downloads')}}"><a href="{{ route('Downloads') }}">Downloads</a></li>
-
-              <li><a href="{{ URL::to('login') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a></li>
-
+              <li class="{{classActivePathPublic('')}}"><a href="{{ URL::to('/') }}">{{__('text.Home')}}</a></li>
+              <li class="{{classActivePathPublic('bewindvoering')}}"><a href="{{route('Bewindvoering')}}">Bewindvoering</a></li>
+              <li class="{{classActivePathPublic('mentorschap')}}"><a href="{{route('Mentorschap')}}">Mentorschap</a></li>
+              <li class="{{classActivePathPublic('curatele')}}"><a href="{{ route('Curatele') }}">Curatele</a></li>
+              <li class="{{classActivePathPublic('tarieven')}}"><a href="{{ route('Tarieven') }}">Tarieven</a></li>
+              <li class="{{classActivePathPublic('downloads')}}"><a href="{{ route('Downloads') }}">Downloads</a></li>
+              <li><a href="{{ URL::to('contact') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
@@ -175,14 +170,14 @@
     {
         display: none;
     }
-    
+
 </style>
 
 <!-- GetButton.io widget -->
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+923015002261", // WhatsApp number
+            whatsapp: "0031633487916", // WhatsApp number
             call_to_action: "Message us", // Call to action
             position: "left", // Position may be 'right' or 'left'
         };
