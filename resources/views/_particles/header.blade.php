@@ -30,7 +30,7 @@
               <li class="{{classActivePathPublic('mentorschap')}}"><a href="{{route('Mentorschap')}}">Mentorschap</a></li>
               <li class="{{classActivePathPublic('curatele')}}"><a href="{{ route('Curatele') }}">Curatele</a></li>
               <li class="{{classActivePathPublic('tarieven')}}"><a href="{{ route('Tarieven') }}">Tarieven</a></li>
-              <li><a href="{{ URL::to('contact') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a></li>
+              <li><a href="{{ URL::to('contact') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
