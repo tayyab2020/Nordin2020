@@ -193,6 +193,16 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
 
     Route::get('blogs/{id}', 'IndexController@Blog')->name('front-blog');
 
+    Route::get('bewindvoering', 'IndexController@Bewindvoering')->name('Bewindvoering');
+
+    Route::get('mentorschap', 'IndexController@Mentorschap')->name('Mentorschap');
+
+    Route::get('curatele', 'IndexController@Curatele')->name('Curatele');
+
+    Route::get('tarieven', 'IndexController@Tarieven')->name('Tarieven');
+
+    Route::get('downloads', 'IndexController@Downloads')->name('Downloads');
+
     Route::get('verhuistips', 'IndexController@MovingTips')->name('front-moving-tips');
 
     Route::get('verhuistips/{id}', 'IndexController@MovingTip')->name('front-moving-tip');

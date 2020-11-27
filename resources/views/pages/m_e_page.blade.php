@@ -51,58 +51,6 @@
 
                 <div class="row" style="margin-top: 30px;display: flex;flex-direction: column;">
 
-                    @if(Route::currentRouteName() == 'front-moving-tips')
-
-                        @if(count($content) > 0)
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex;">
-
-                        <div style="margin: auto;" data-testid="key-services" class="css-htlmaj col-lg-10 col-md-12 col-sm-12 col-xs-12">
-                            <div>
-                                <div class="domain-home_ down is-visible">
-
-                                    <h2 class="css-ce6ko1">{{$heading->m_t_heading}}</h2>
-
-                                    <ul class="css-48sroz" style="list-style: none;padding: 0;">
-
-                                        @foreach($content as $temp)
-
-                                            <li>
-
-                                                @if($temp->image)
-
-                                                    <a target="_blank" href="@if($temp->url){{$temp->url}} @else {{URL::to('/')}} @endif">
-
-                                                        <img src="{{ URL::asset('upload/moving-tips/'.$temp->image) }}">{{$temp->title}}
-
-                                                    </a>
-
-                                                @else
-
-                                                    <a target="_blank" style="display: flex;justify-content: center;" href="@if($temp->url){{$temp->url}} @else {{URL::to('/')}} @endif">
-
-                                                        {{$temp->title}}
-
-                                                    </a>
-
-                                                @endif
-
-                                            </li>
-
-                                        @endforeach
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                            @endif
-
-                    @endif
-
                     <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12" style="margin: auto;">
                         <div class="blog_posts stander_blog_single_post">
                             <article>

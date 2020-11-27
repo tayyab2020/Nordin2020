@@ -971,6 +971,61 @@ class IndexController extends Controller
         return view('pages.m_e_page',compact('m_e','content','heading'));
     }
 
+    public function Bewindvoering()
+    {
+        $m_e = moving_tips::orderBy('id', 'desc')->get();
+
+        $content = moving_tips_contents::orderBy('id','asc')->get();
+
+        $heading = Settings::where('id',1)->first();
+
+        return view('pages.m_e_page',compact('m_e','content','heading'));
+    }
+
+    public function Mentorschap()
+    {
+        $m_e = moving_tips::orderBy('id', 'desc')->get();
+
+        $content = moving_tips_contents::orderBy('id','asc')->get();
+
+        $heading = Settings::where('id',1)->first();
+
+        return view('pages.m_e_page',compact('m_e','content','heading'));
+    }
+
+    public function Curatele()
+    {
+        $m_e = moving_tips::orderBy('id', 'desc')->get();
+
+        $content = moving_tips_contents::orderBy('id','asc')->get();
+
+        $heading = Settings::where('id',1)->first();
+
+        return view('pages.m_e_page',compact('m_e','content','heading'));
+    }
+
+    public function Tarieven()
+    {
+        $m_e = moving_tips::orderBy('id', 'desc')->get();
+
+        $content = moving_tips_contents::orderBy('id','asc')->get();
+
+        $heading = Settings::where('id',1)->first();
+
+        return view('pages.m_e_page',compact('m_e','content','heading'));
+    }
+
+    public function Downloads()
+    {
+        $m_e = moving_tips::orderBy('id', 'desc')->get();
+
+        $content = moving_tips_contents::orderBy('id','asc')->get();
+
+        $heading = Settings::where('id',1)->first();
+
+        return view('pages.m_e_page',compact('m_e','content','heading'));
+    }
+
     public function MovingTip($id)
     {
         $blog = moving_tips::where('id',$id)->first();

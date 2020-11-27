@@ -26,14 +26,14 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="{{classActivePathPublic('')}}"><a href="{{ URL::to('/') }}">{{__('text.Home')}}</a></li>
-        	<li class="{{classActivePathPublic('woningaanbod')}}"><a href="{{route('properties-front')}}">{{__('text.All Properties')}}</a></li>
+        	<li class="{{classActivePathPublic('bewindvoering')}}"><a href="{{route('Bewindvoering')}}">Bewindvoering</a></li>
             {{--<li class="{{classActivePathPublic('featured')}}"><a href="{{ URL::to('featured/') }}">Featured</a></li>--}}
             {{--<li class="{{classActivePathPublic('sale')}}"><a href="{{ URL::to('sale/') }}">Sale</a></li>
             <li class="{{classActivePathPublic('rent')}}"><a href="{{ URL::to('rent/') }}">Rent</a></li>--}}
-            <li class="{{classActivePathPublic('makelaars')}}"><a href="{{route('agents-front')}}">{{__('text.Agents')}}</a></li>
-            <li class="{{classActivePathPublic('nieuwbouwprojecten')}}"><a href="{{ route('newconstructions-front') }}">{{__('text.New Constructions')}}</a></li>
-            <li class="{{classActivePathPublic('woningruil')}}"><a href="{{ route('homeexchange-front') }}">{{__('text.Home Exchange')}}</a></li>
-            <li class="{{classActivePathPublic('verhuistips')}}"><a href="{{ route('front-moving-tips') }}">{{__('text.Moving Tips')}}</a></li>
+            <li class="{{classActivePathPublic('mentorschap')}}"><a href="{{route('Mentorschap')}}">Mentorschap</a></li>
+            <li class="{{classActivePathPublic('curatele')}}"><a href="{{ route('Curatele') }}">Curatele</a></li>
+            <li class="{{classActivePathPublic('tarieven')}}"><a href="{{ route('Tarieven') }}">Tarieven</a></li>
+            <li class="{{classActivePathPublic('downloads')}}"><a href="{{ route('Downloads') }}">Downloads</a></li>
 
               <li><a href="{{ URL::to('login') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">{{__('text.Post your Property')}}</a></li>
 
@@ -170,4 +170,26 @@
             width: 100% !important;
         }
     }
+
+    .hasyTc
+    {
+        display: none;
+    }
+    
 </style>
+
+<!-- GetButton.io widget -->
+<script type="text/javascript">
+    (function () {
+        var options = {
+            whatsapp: "+923015002261", // WhatsApp number
+            call_to_action: "Message us", // Call to action
+            position: "left", // Position may be 'right' or 'left'
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+</script>
+<!-- /GetButton.io widget -->
