@@ -79,7 +79,7 @@
                             <input type="email" name="email" @if(Auth::User()->usertype != "Admin") readonly @endif value="{{ Auth::user()->email }}" class="form-control" value="">
                         </div>
                     </div>
-                    
+
 
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">@if(Auth::User()->usertype != "Admin") {{__('text.Mobile No')}} @else Phone @endif</label>

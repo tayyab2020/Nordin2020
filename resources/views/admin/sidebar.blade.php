@@ -36,9 +36,11 @@
 
                     <li class="{{classActivePath('bewindvoering')}}"><a href="{{ URL::to('admin/bewindvoering') }}"><i class="fa fa-list"></i> Bewindvoering</a></li>
 
-	                <li class="{{classActivePath('blogs')}}"><a href="{{ URL::to('admin/blogs') }}"><i class="fa fa-list"></i>Blogs</a></li>
+	                <li class="{{classActivePath('mentorschap')}}"><a href="{{ URL::to('admin/mentorschap') }}"><i class="fa fa-list"></i> Mentorschap</a></li>
 
-                    <li class="{{classActivePath('expats')}}"><a href="{{ URL::to('admin/expats') }}"><i class="fa fa-list"></i>Expats</a></li>
+                    <li class="{{classActivePath('curatele')}}"><a href="{{ URL::to('admin/curatele') }}"><i class="fa fa-list"></i> Curatele</a></li>
+
+                    <li class="{{classActivePath('tarieven')}}"><a href="{{ URL::to('admin/tarieven') }}"><i class="fa fa-list"></i> Tarieven</a></li>
 
 	                <li class="{{classActivePath('settings')}}"><a href="{{ URL::to('admin/settings') }}"><i class="md md-settings"></i>Settings</a></li>
 

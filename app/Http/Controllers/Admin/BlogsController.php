@@ -231,13 +231,13 @@ class BlogsController extends MainAdminController
 
     public function blogslist()
     {
-        if(Route::currentRouteName() == 'blogs')
-        {
-            $allblogs = Blogs::orderBy('id', 'desc')->get();
-        }
-        elseif(Route::currentRouteName() == 'bewindvoering-admin')
+        if(Route::currentRouteName() == 'bewindvoering-admin')
         {
             $allblogs = Blogs::where('type',1)->orderBy('id', 'desc')->get();
+        }
+        elseif(Route::currentRouteName() == 'mentorschap-admin')
+        {
+            $allblogs = Blogs::where('type',2)->orderBy('id', 'desc')->get();
         }
         else
         {
@@ -358,12 +358,12 @@ class BlogsController extends MainAdminController
 
         if(!empty($inputs['id'])){
 
-            \Session::flash('flash_message', __('text.Changes Saved'));
+            \Session::flash('flash_message', 'Changes Saved');
 
             return \Redirect::back();
         }else{
 
-            \Session::flash('flash_message', __('text.Added'));
+            \Session::flash('flash_message', 'Added');
 
             return \Redirect::back();
 
@@ -383,13 +383,13 @@ class BlogsController extends MainAdminController
 
         }
 
-        if(Route::currentRouteName() == 'edit-blog')
+        if(Route::currentRouteName() == 'edit-bewindvoering')
         {
-            $blog = Blogs::findOrFail($id);
+            $blog = Blogs::where('id',$id)->where('type',1)->first();
         }
-        elseif(Route::currentRouteName() == 'edit-moving-tip')
+        elseif(Route::currentRouteName() == 'edit-mentorschap')
         {
-            $blog = moving_tips::findOrFail($id);
+            $blog = Blogs::where('id',$id)->where('type',2)->first();
         }
         else
         {
@@ -411,24 +411,9 @@ class BlogsController extends MainAdminController
 
         }
 
-        if(Route::currentRouteName() == 'delete-blog')
-        {
-            $blog = Blogs::findOrFail($id);
+        $blog = Blogs::findOrFail($id);
 
-            \File::delete(public_path() .'/upload/blogs/'.$blog->image);
-        }
-        elseif(Route::currentRouteName() == 'delete-moving-tip')
-        {
-            $blog = moving_tips::findOrFail($id);
-
-            \File::delete(public_path() .'/upload/moving-tips/'.$blog->image);
-        }
-        else
-        {
-            $blog = Expats::findOrFail($id);
-
-            \File::delete(public_path() .'/upload/expats/'.$blog->image);
-        }
+        \File::delete(public_path() .'/upload/blogs/'.$blog->image);
 
         $blog->delete();
 

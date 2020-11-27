@@ -1,216 +1,98 @@
 @extends("app")
 @section("content")
 
-    <!-- begin:header -->
-    <div id="header" class="heading" style="background-image: url({{ URL::asset('assets/img/img01.jpg') }});">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-12">
-
-                    @if(Route::currentRouteName() == 'front-blogs')
-
-                        <div class="page-title">
-                            <h2>Blogs</h2>
-                        </div>
-                        <ol class="breadcrumb">
-                            <li><a href="{{ URL::to('/') }}">Home</a></li>
-                            <li class="active">Blogs</li>
-                        </ol>
-
-                        @elseif(Route::currentRouteName() == 'front-moving-tips')
-
-                        <div class="page-title">
-                            <h2>Moving Tips</h2>
-                        </div>
-                        <ol class="breadcrumb">
-                            <li><a href="{{ URL::to('/') }}">Home</a></li>
-                            <li class="active">Moving Tips</li>
-                        </ol>
-
-                        @else
-
-                        <div class="page-title">
-                            <h2>Expats</h2>
-                        </div>
-                        <ol class="breadcrumb">
-                            <li><a href="{{ URL::to('/') }}">Home</a></li>
-                            <li class="active">Expats</li>
-                        </ol>
-
-                        @endif
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end:header -->
-
     <!-- begin:content -->
     <div id="content">
+
+        @if(Session::has('flash_message'))
+            <div class="alert alert-success alert-box" style="text-align: center;font-size: 16px;position: fixed;top: 20%;z-index: 1000;padding-right: 35px;background-color: rgb(0 0 0);color: rgb(255 255 255);border: 0;max-width: 400px;border-radius: 0;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="position: absolute;top: 5px;right: 8px;font-size: 28px;line-height: 0.5;opacity: 0.8;font-weight: 100;text-shadow: none;color: #ffffff;">
+                    <span aria-hidden="true">&times;</span></button>
+                {{ Session::get('flash_message') }}
+            </div>
+        @endif
+
+
         <div class="container">
 
-            <div class="row mobile-row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            @foreach($blogs as $blog)
 
-                    <!-- begin:article -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="post_img">
 
-                @if(count($blogs))
+                            <h1 class="post_title" style="font-weight: 100;text-align: center;">
+                                {{$blog->title}}
+                            </h1>
 
-                    <!-- begin:product -->
-                        <div class="row" style="margin: 0;">
-
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;">
-
-                            <?php $i = 0; ?>
-
-                            @foreach($blogs as $i => $blog)
-
-                                    <?php $description = $blog->description;
-
-                                    $description = preg_replace(array('#<[^>]+>#','#&nbsp;#'), ' ', $description);
-
-                                    $date = $blog->created_at;
-                                    $date = date("M d, Y", strtotime($date));
-                                    ?>
-
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10 res-float" style="margin: auto;">
-                                        <article style="margin-bottom: 45px;">
-                                            <div class="property-container" style="margin: 0;min-height: 433px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
-                                                <div class="property-image">
-
-                                                    @if(Route::currentRouteName() == 'front-blogs')
-
-                                                        @if($blog->image)
-
-                                                            <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" style="width: 100%;height: 250px;border-top-left-radius: 3px;border-top-right-radius: 3px;">
-
-                                                            @else
-
-                                                            <img src="{{ URL::asset('upload/noImage.png') }}" style="width: 100%;height: 250px;border-top-left-radius: 3px;border-top-right-radius: 3px;">
-
-                                                        @endif
-
-                                                    @elseif(Route::currentRouteName() == 'front-moving-tips')
-
-                                                        @if($blog->image)
-
-                                                            <img src="{{ URL::asset('upload/moving-tips/'.$blog->image) }}" style="width: 100%;height: 250px;border-top-left-radius: 3px;border-top-right-radius: 3px;" >
-
-                                                            @else
-
-                                                            <img src="{{ URL::asset('upload/noImage.png') }}" style="width: 100%;height: 250px;border-top-left-radius: 3px;border-top-right-radius: 3px;">
-
-                                                        @endif
-
-                                                    @else
-
-                                                        @if($blog->image)
-
-                                                            <img src="{{ URL::asset('upload/expats/'.$blog->image) }}" style="width: 100%;height: 250px;border-top-left-radius: 3px;border-top-right-radius: 3px;" >
-
-                                                            @else
-
-                                                            <img src="{{ URL::asset('upload/noImage.png') }}" style="width: 100%;height: 250px;border-top-left-radius: 3px;border-top-right-radius: 3px;">
-
-                                                        @endif
-
-                                                    @endif
+                            <?php $date = $blog->created_at;
+                            $date = date("M d, Y", strtotime($date)); ?>
 
 
-                                                </div>
-
-                                                <div class="property-content description-content">
-
-                                                    <h3>
-
-                                                        @if(Route::currentRouteName() == 'front-blogs')
-
-                                                            <a style="text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;outline: none;" href="{{ url('blogs/'.$blog->id) }}">{{$blog->title}}</a>
-
-                                                        @elseif(Route::currentRouteName() == 'front-moving-tips')
-
-                                                            <a style="text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;outline: none;" href="{{ url('verhuistips/'.$blog->id) }}">{{$blog->title}}</a>
-
-                                                        @else
-
-                                                            <a style="text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;outline: none;" href="{{ url('expats/'.$blog->id) }}">{{$blog->title}}</a>
-
-                                                        @endif
-
-                                                        <small style="color: #acacac;font-style: normal;">{{$date}}</small>
-
-                                                    </h3>
-
-                                                    <p style="text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;line-height: 2;font-size: 15px;margin-top: 15px;">{{$description}}</p>
-
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-
-                                            @endforeach
-
+                            <div class="post_meta_top" style="text-align: center;margin-bottom: 20px;">
+                                <span class="post_meta_date">{{$date}}</span>
                             </div>
-                                    </div>
-                                    <!-- end:product -->
 
-                                @else
+                            @if($blog->image)
 
-                        @if(Route::currentRouteName() == 'front-blogs')
+                                <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" style="width: 100%;" alt="{{$blog->title}}">
 
-                            <h2 style="text-align: center;margin-top: 30px;margin-bottom: 30px;">No Blogs found...</h2>
+                            @else
 
-                        @elseif(Route::currentRouteName() == 'front-moving-tips')
-
-                            <h2 style="text-align: center;margin-top: 30px;margin-bottom: 30px;">No Moving Tips found...</h2>
-
-                        @else
-
-                            <h2 style="text-align: center;margin-top: 30px;margin-bottom: 30px;">No Expats found...</h2>
-
-                        @endif
-
+                                <img src="{{ URL::asset('upload/noImage.png') }}" style="width: 100%;" alt="{{$blog->title}}">
 
                             @endif
-                            <!-- begin:pagination -->
-                            {{ $blogs->appends(request()->query())->links() }}
-                            <!-- end:pagination -->
-                        </div>
-                        <!-- end:article -->
 
-
+                    </div>
                 </div>
             </div>
+
+            <div class="row" style="margin-top: 30px;display: flex;">
+                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12" style="margin: auto;">
+                    <div class="blog_posts stander_blog_single_post">
+                        <article>
+
+                            <div class="post_content description-content" style="margin-top: 40px;">
+                                {!! $blog->description !!}
+                            </div>
+
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+                @endforeach
+
+
         </div>
-        <!-- end:content -->
+    </div>
+    <!-- end:content -->
+
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/flaticon.css') }}"/>
+
 
     <style>
 
-        @media (min-width: 992px)
+        .description-content img
         {
-            .post_img img
-            {
-                width: 80% !important;
-                height: 500px !important;
-                margin: auto;
-                display: block;
-            }
+            margin-left: 5px;
         }
 
-        .post_img img
+        .description-content blockquote:before
         {
-            height: 300px;
-        }
-
-        @media (max-width: 767px)
-        {
-            .res-float
-            {
-                float: none;
-            }
+            content: '\f10d';
+            font-family: 'FontAwesome';
+            position: relative;
+            left: -1em;
+            top: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            color: black;
+            font-size: 10px;
         }
 
     </style>
+
 
 @endsection

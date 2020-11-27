@@ -973,24 +973,16 @@ class IndexController extends Controller
 
     public function Bewindvoering()
     {
-        $m_e = moving_tips::orderBy('id', 'desc')->get();
+        $blogs = Blogs::where('type',1)->orderBy('id', 'desc')->get();
 
-        $content = moving_tips_contents::orderBy('id','asc')->get();
-
-        $heading = Settings::where('id',1)->first();
-
-        return view('pages.m_e_page',compact('m_e','content','heading'));
+        return view('pages.blogs',compact('blogs'));
     }
 
     public function Mentorschap()
     {
-        $m_e = moving_tips::orderBy('id', 'desc')->get();
+        $blogs = Blogs::where('type',2)->orderBy('id', 'desc')->get();
 
-        $content = moving_tips_contents::orderBy('id','asc')->get();
-
-        $heading = Settings::where('id',1)->first();
-
-        return view('pages.m_e_page',compact('m_e','content','heading'));
+        return view('pages.blogs',compact('blogs'));
     }
 
     public function Curatele()

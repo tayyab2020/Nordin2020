@@ -89,20 +89,11 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
         Route::get('bewindvoering/add/{id}', 'BlogsController@editblog')->name('edit-bewindvoering');
         Route::get('bewindvoering/delete/{id}', 'BlogsController@delete')->name('delete-bewindvoering');
 
-        Route::get('moving-tips/moving-tips-content', 'BlogsController@movingtipscontentlist');
-        Route::get('moving-tips/addmovingtipscontent', 'BlogsController@addeditmovingtipscontent');
-        Route::post('moving-tips/addmovingtipscontent', 'BlogsController@addnewmovingtipscontent');
-        Route::get('moving-tips/addmovingtipscontent/{id}', 'BlogsController@editmovingtipscontent');
-        Route::get('moving-tips/delete-moving-tips-content/{id}', 'BlogsController@deletemovingtipscontent');
-        Route::get('moving-tips/changeheading', 'BlogsController@movingtipscontentheading');
-        Route::post('moving-tips/changeheading', 'BlogsController@SaveMovingTipsContentHeading');
-
-        Route::get('expats', 'BlogsController@blogslist')->name('expats');
-        Route::get('expats/addexpat', 'BlogsController@addeditblogs')->name('add-expat');
-        Route::post('expats/addexpat', 'BlogsController@addnew')->name('post-expat');
-        Route::get('expats/addexpat/{id}', 'BlogsController@editblog')->name('edit-expat');
-        Route::get('expats/delete/{id}', 'BlogsController@delete')->name('delete-expat');
-
+        Route::get('mentorschap', 'BlogsController@blogslist')->name('mentorschap-admin');
+        Route::get('mentorschap/add', 'BlogsController@addeditblogs')->name('add-mentorschap');
+        Route::post('mentorschap/add', 'BlogsController@addnew')->name('post-mentorschap');
+        Route::get('mentorschap/add/{id}', 'BlogsController@editblog')->name('edit-mentorschap');
+        Route::get('mentorschap/delete/{id}', 'BlogsController@delete')->name('delete-mentorschap');
 
         Route::get('properties', 'PropertiesController@propertieslist')->name('properties');
         Route::get('new_constructions', 'PropertiesController@newconstructionslist')->name('new_constructions');

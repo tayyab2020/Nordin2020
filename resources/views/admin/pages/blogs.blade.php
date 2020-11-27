@@ -4,15 +4,7 @@
     <div id="main">
         <div class="page-header">
 
-            @if(Route::currentRouteName() == 'blogs')
-
-            <div class="pull-right">
-                <a href="{{URL::to('admin/blogs/addblog')}}" class="btn btn-primary">Add Blog <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
-            </div>
-
-            <h2>Blogs</h2>
-
-                @elseif(Route::currentRouteName() == 'bewindvoering-admin')
+            @if(Route::currentRouteName() == 'bewindvoering-admin')
 
                 <div class="pull-right">
                     <a href="{{URL::to('admin/bewindvoering/add')}}" class="btn btn-primary">Add Bewindvoering <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
@@ -20,21 +12,13 @@
 
                 <h2>Bewindvoering</h2>
 
-            @elseif(Route::currentRouteName() == 'expats')
+            @elseif(Route::currentRouteName() == 'mentorschap-admin')
 
                 <div class="pull-right">
-                    <a href="{{URL::to('admin/expats/addexpat')}}" class="btn btn-primary">Add Expat <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
+                    <a href="{{URL::to('admin/mentorschap/add')}}" class="btn btn-primary">Add Mentorschap <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
                 </div>
 
-                <h2>Expats</h2>
-
-            @else
-
-                <div class="pull-right">
-                    <a href="{{URL::to('admin/footer-pages/add-footer-page')}}" class="btn btn-primary">Add Footer Page <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
-                </div>
-
-                <h2>Footer Pages</h2>
+                <h2>Mentorschap</h2>
 
             @endif
 
@@ -57,12 +41,6 @@
                         <th>Image</th>
                         <th>Title</th>
 
-                        @if(Route::currentRouteName() == 'footer-pages')
-
-                        <th>Heading</th>
-
-                        @endif
-
                         <th class="text-center width-100">Action</th>
                     </tr>
                     </thead>
@@ -71,8 +49,6 @@
                     @foreach($allblogs as $i => $blog)
                         <tr>
                             <td>
-
-                                @if(Route::currentRouteName() == 'blogs')
 
                                     @if($blog->image)
 
@@ -84,89 +60,14 @@
 
                                     @endif
 
-                                @elseif(Route::currentRouteName() == 'moving-tips')
-
-                                    @if($blog->image)
-
-                                        <img src="{{ URL::asset('upload/moving-tips/'.$blog->image) }}" width="80" alt="">
-
-                                        @else
-
-                                        <img src="{{ URL::asset('upload/noImage.png') }}" width="80" alt="">
-
-                                    @endif
-
-                                @elseif(Route::currentRouteName() == 'expats')
-
-                                    @if($blog->image)
-
-                                        <img src="{{ URL::asset('upload/expats/'.$blog->image) }}" width="80" alt="">
-
-                                        @else
-
-                                        <img src="{{ URL::asset('upload/noImage.png') }}" width="80" alt="">
-
-                                    @endif
-
-                                @else
-
-                                    @if($blog->image)
-
-                                        <img src="{{ URL::asset('upload/footer-pages/'.$blog->image) }}" width="80" alt="">
-
-                                    @else
-
-                                        <img src="{{ URL::asset('upload/noImage.png') }}" width="80" alt="">
-
-                                    @endif
-
-                                @endif
-
                             </td>
 
                             <td>
 
-                                @if(Route::currentRouteName() == 'blogs')
-
-                                <a href="{{ url('blogs/'.$blog->id) }}">{{ $blog->title }}</a>
-
-                                @elseif(Route::currentRouteName() == 'moving-tips')
-
-                                    <a href="{{ url('verhuistips/'.$blog->id) }}">{{ $blog->title }}</a>
-
-                                @elseif(Route::currentRouteName() == 'expats')
-
-                                    <a href="{{ url('expats/'.$blog->id) }}">{{ $blog->title }}</a>
-
-                                @else
-
-                                    <a href="{{ url('footer-pages/'.$blog->id) }}">{{ $blog->title }}</a>
-
-                                @endif
+                                {{ $blog->title }}
 
                             </td>
 
-                            @if(Route::currentRouteName() == 'footer-pages')
-
-                                @if($blog->heading)
-
-                                    <td>
-                                        {{$blog->heading}}
-                                    </td>
-
-                                @elseif($blog->heading_id == 0)
-
-                                    <td>Company</td>
-
-                                @else
-
-                                    <td>Not Linked</td>
-
-                                @endif
-
-
-
-                            @endif
 
                             <td class="text-center">
                                 <div class="btn-group">
@@ -175,15 +76,15 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
 
-                                        @if(Route::currentRouteName() == 'blogs')
+                                        @if(Route::currentRouteName() == 'bewindvoering-admin')
 
-                                            <li><a href="{{ url('admin/blogs/addblog/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/blogs/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
+                                            <li><a href="{{ url('admin/bewindvoering/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
+                                            <li><a href="{{ url('admin/bewindvoering/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
 
-                                        @elseif(Route::currentRouteName() == 'moving-tips')
+                                        @elseif(Route::currentRouteName() == 'mentorschap-admin')
 
-                                            <li><a href="{{ url('admin/moving-tips/addmovingtip/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/moving-tips/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
+                                            <li><a href="{{ url('admin/mentorschap/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
+                                            <li><a href="{{ url('admin/mentorschap/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
 
                                         @elseif(Route::currentRouteName() == 'expats')
 

@@ -5,17 +5,17 @@
     <div id="main">
         <div class="page-header">
 
-            @if(Route::currentRouteName() == 'add-blog' || Route::currentRouteName() == 'edit-blog')
-
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Blog' }}</h2>
-
-                <a href="{{ URL::to('admin/blogs') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
-
-            @elseif(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
+            @if(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
 
                 <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Bewindvoering' }}</h2>
 
                 <a href="{{ URL::to('admin/bewindvoering') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
+
+            @elseif(Route::currentRouteName() == 'add-mentorschap' || Route::currentRouteName() == 'edit-mentorschap')
+
+                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Mentorschap' }}</h2>
+
+                <a href="{{ URL::to('admin/mentorschap') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
             @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
 
@@ -54,15 +54,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-                @if(Route::currentRouteName() == 'add-blog' || Route::currentRouteName() == 'edit-blog')
-
-                    {!! Form::open(array('url' => array('admin/blogs/addblog'),'class'=>'form-horizontal padding-15','name'=>'addblog_form','id'=>'addblog_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="page" value="blog">
-
-                @elseif(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
+                @if(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
 
                     {!! Form::open(array('url' => array('admin/bewindvoering/add'),'class'=>'form-horizontal padding-15','name'=>'addbewindvoering_form','id'=>'addbewindvoering_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
                     <input type="hidden" name="type" value="1">
+
+                @elseif(Route::currentRouteName() == 'add-mentorschap' || Route::currentRouteName() == 'edit-mentorschap')
+
+                    {!! Form::open(array('url' => array('admin/mentorschap/add'),'class'=>'form-horizontal padding-15','name'=>'addmentorschap_form','id'=>'addmentorschap_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
+                    <input type="hidden" name="type" value="2">
 
                 @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
 
@@ -141,13 +141,13 @@
                 <div class="form-group">
                     <div class="col-md-offset-3 col-sm-9 ">
 
-                        @if(Route::currentRouteName() == 'add-blog' || Route::currentRouteName() == 'edit-blog')
-
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Blog' : 'Add Blog' }}</button>
-
-                        @elseif(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
+                        @if(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
 
                             <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Bewindvoering' : 'Add Bewindvoering' }}</button>
+
+                        @elseif(Route::currentRouteName() == 'add-mentorschap' || Route::currentRouteName() == 'edit-mentorschap')
+
+                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Mentorschap' : 'Add Mentorschap' }}</button>
 
                         @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
 
