@@ -239,9 +239,13 @@ class BlogsController extends MainAdminController
         {
             $allblogs = Blogs::where('type',2)->orderBy('id', 'desc')->get();
         }
+        elseif(Route::currentRouteName() == 'curatele-admin')
+        {
+            $allblogs = Blogs::where('type',3)->orderBy('id', 'desc')->get();
+        }
         else
         {
-            $allblogs = Expats::orderBy('id', 'desc')->get();
+            $allblogs = Blogs::where('type',4)->orderBy('id', 'desc')->get();
         }
 
         return view('admin.pages.blogs',compact('allblogs'));
@@ -383,18 +387,7 @@ class BlogsController extends MainAdminController
 
         }
 
-        if(Route::currentRouteName() == 'edit-bewindvoering')
-        {
-            $blog = Blogs::where('id',$id)->where('type',1)->first();
-        }
-        elseif(Route::currentRouteName() == 'edit-mentorschap')
-        {
-            $blog = Blogs::where('id',$id)->where('type',2)->first();
-        }
-        else
-        {
-            $blog = Expats::findOrFail($id);
-        }
+        $blog = Blogs::where('id',$id)->first();
 
         return view('admin.pages.addeditblog',compact('blog'));
 

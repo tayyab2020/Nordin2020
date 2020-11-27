@@ -17,17 +17,17 @@
 
                 <a href="{{ URL::to('admin/mentorschap') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
-            @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
+            @elseif(Route::currentRouteName() == 'add-curatele' || Route::currentRouteName() == 'edit-curatele')
 
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Expat' }}</h2>
+                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Curatele' }}</h2>
 
-                <a href="{{ URL::to('admin/expats') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
+                <a href="{{ URL::to('admin/curatele') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
             @else
 
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Footer Page' }}</h2>
+                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Tarieven' }}</h2>
 
-                <a href="{{ URL::to('admin/footer-pages') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
+                <a href="{{ URL::to('admin/tarieven') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
             @endif
 
@@ -64,15 +64,15 @@
                     {!! Form::open(array('url' => array('admin/mentorschap/add'),'class'=>'form-horizontal padding-15','name'=>'addmentorschap_form','id'=>'addmentorschap_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
                     <input type="hidden" name="type" value="2">
 
-                @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
+                @elseif(Route::currentRouteName() == 'add-curatele' || Route::currentRouteName() == 'edit-curatele')
 
-                    {!! Form::open(array('url' => array('admin/expats/addexpat'),'class'=>'form-horizontal padding-15','name'=>'addexpat_form','id'=>'addexpat_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="page" value="expat">
+                    {!! Form::open(array('url' => array('admin/curatele/add'),'class'=>'form-horizontal padding-15','name'=>'addcuratele_form','id'=>'addcuratele_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
+                    <input type="hidden" name="type" value="3">
 
                 @else
 
-                    {!! Form::open(array('url' => array('admin/footer-pages/add-footer-page'),'class'=>'form-horizontal padding-15','name'=>'addfooterpage_form','id'=>'addfooterpage_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="page" value="footer">
+                    {!! Form::open(array('url' => array('admin/tarieven/add'),'class'=>'form-horizontal padding-15','name'=>'addtarieven_form','id'=>'addtarieven_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
+                    <input type="hidden" name="type" value="4">
 
                 @endif
 
@@ -149,13 +149,13 @@
 
                             <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Mentorschap' : 'Add Mentorschap' }}</button>
 
-                        @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
+                        @elseif(Route::currentRouteName() == 'add-curatele' || Route::currentRouteName() == 'edit-curatele')
 
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Expat' : 'Add Expat' }}</button>
+                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Curatele' : 'Add Curatele' }}</button>
 
                         @else
 
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Footer Page' : 'Add Footer Page' }}</button>
+                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Tarieven' : 'Add Tarieven' }}</button>
 
                         @endif
 

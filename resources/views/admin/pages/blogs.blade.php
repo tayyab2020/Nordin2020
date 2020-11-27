@@ -20,6 +20,22 @@
 
                 <h2>Mentorschap</h2>
 
+            @elseif(Route::currentRouteName() == 'curatele-admin')
+
+                <div class="pull-right">
+                    <a href="{{URL::to('admin/curatele/add')}}" class="btn btn-primary">Add Curatele <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
+                </div>
+
+                <h2>Curatele</h2>
+
+            @else
+
+                <div class="pull-right">
+                    <a href="{{URL::to('admin/tarieven/add')}}" class="btn btn-primary">Add Tarieven <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
+                </div>
+
+                <h2>Tarieven</h2>
+
             @endif
 
         </div>
@@ -86,15 +102,15 @@
                                             <li><a href="{{ url('admin/mentorschap/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
                                             <li><a href="{{ url('admin/mentorschap/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
 
-                                        @elseif(Route::currentRouteName() == 'expats')
+                                        @elseif(Route::currentRouteName() == 'curatele-admin')
 
-                                            <li><a href="{{ url('admin/expats/addexpat/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/expats/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
+                                            <li><a href="{{ url('admin/curatele/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
+                                            <li><a href="{{ url('admin/curatele/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
 
                                         @else
 
-                                            <li><a href="{{ url('admin/footer-pages/add-footer-page/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/footer-pages/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
+                                            <li><a href="{{ url('admin/tarieven/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
+                                            <li><a href="{{ url('admin/tarieven/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
 
                                         @endif
 

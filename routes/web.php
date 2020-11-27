@@ -95,6 +95,18 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
         Route::get('mentorschap/add/{id}', 'BlogsController@editblog')->name('edit-mentorschap');
         Route::get('mentorschap/delete/{id}', 'BlogsController@delete')->name('delete-mentorschap');
 
+        Route::get('curatele', 'BlogsController@blogslist')->name('curatele-admin');
+        Route::get('curatele/add', 'BlogsController@addeditblogs')->name('add-curatele');
+        Route::post('curatele/add', 'BlogsController@addnew')->name('post-curatele');
+        Route::get('curatele/add/{id}', 'BlogsController@editblog')->name('edit-curatele');
+        Route::get('curatele/delete/{id}', 'BlogsController@delete')->name('delete-curatele');
+
+        Route::get('tarieven', 'BlogsController@blogslist')->name('tarieven-admin');
+        Route::get('tarieven/add', 'BlogsController@addeditblogs')->name('add-tarieven');
+        Route::post('tarieven/add', 'BlogsController@addnew')->name('post-tarieven');
+        Route::get('tarieven/add/{id}', 'BlogsController@editblog')->name('edit-tarieven');
+        Route::get('tarieven/delete/{id}', 'BlogsController@delete')->name('delete-tarieven');
+
         Route::get('properties', 'PropertiesController@propertieslist')->name('properties');
         Route::get('new_constructions', 'PropertiesController@newconstructionslist')->name('new_constructions');
         Route::get('home_exchange', 'PropertiesController@homeexchangelist')->name('home_exchange_list');
