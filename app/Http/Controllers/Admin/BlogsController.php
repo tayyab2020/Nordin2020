@@ -352,7 +352,7 @@ class BlogsController extends MainAdminController
 
         $blog->title = $inputs['title'];
         $blog->description = $inputs['description'];
-        $blog->type = $inputs['page'];
+        $blog->type = $inputs['type'];
 
         $blog->save();
 
