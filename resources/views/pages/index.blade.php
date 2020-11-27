@@ -1,10 +1,9 @@
 @extends("app")
 @section("content")
 
-@include("_particles.slidersearch")
 
 <!-- begin:content -->
-    <div id="content" style="padding: 50px 0px 0px 0px;">
+    <div id="content" style="padding: 50px 0px 0px 0px;margin-bottom: 30px;">
 
         @if(Session::has('flash_message'))
             <div class="alert alert-success alert-box" style="text-align: center;font-size: 16px;position: fixed;top: 20%;z-index: 1000;padding-right: 35px;background-color: rgb(0 0 0);color: rgb(255 255 255);border: 0;max-width: 400px;border-radius: 0;">
@@ -309,7 +308,7 @@
 
     .css-48sroz li:hover,.css-48sroz li:focus{box-shadow:0 3px 6px 0 rgba(30,41,61,0.15),0 5px 10px 0 rgba(30,41,61,0.15);-webkit-transition:box-shadow ease-in 100ms;transition:box-shadow ease-in 100ms;z-index:1;}
 
-    @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);}
+    @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);}}
 
     .css-48sroz a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 90%;}
 
@@ -484,8 +483,6 @@
 
 <script src="{{ URL::asset('assets/js/util.js') }}"></script>
 <script src="{{ URL::asset('assets/js/main.js') }}"></script>
-
-@include("_particles.subscribe")
 
 
 @endsection

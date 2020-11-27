@@ -32,43 +32,7 @@ class DashboardController extends MainAdminController
     }
     public function index()
     {
-    	if(Auth::user()->usertype=='Admin')
-    	{
-			$properties_count = Properties::count();
-
-			$publish_properties = Properties::where('status','1')->count();
-
-	    	$unpublish_properties = Properties::where('status','0')->count();
-
-	    	$featured_properties = Properties::where('featured_property', '1')->count();
-	    	$inquiries = Enquire::count();
-
-	    	$agents = User::where('usertype', 'Agents')->count();
-
-	    	$testimonials = Testimonials::count();
-
-	    	$subscriber = Subscriber::count();
-
-	    	$partners = Partners::count();
-
-	    	return view('admin.pages.dashboard',compact('properties_count','featured_properties','inquiries','agents','testimonials','subscriber','partners','publish_properties','unpublish_properties'));
-
-		}
-		else
-		{
-			$user_id=Auth::user()->id;
-
-	    	$properties_count = Properties::where(['user_id' => $user_id])->count();
-
-	    	$publish_properties = Properties::where(['user_id' => $user_id,'status' => '1'])->count();
-
-	    	$unpublish_properties = Properties::where(['user_id' => $user_id,'status' => '0'])->count();
-
-	    	$inquiries = Enquire::where(['agent_id' => $user_id])->count();
-
-			return view('admin.pages.dashboard',compact('properties_count','inquiries','publish_properties','unpublish_properties'));
-		}
-
+        return view('admin.pages.dashboard');
 
     }
 

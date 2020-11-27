@@ -235,9 +235,9 @@ class BlogsController extends MainAdminController
         {
             $allblogs = Blogs::orderBy('id', 'desc')->get();
         }
-        elseif(Route::currentRouteName() == 'moving-tips')
+        elseif(Route::currentRouteName() == 'bewindvoering-admin')
         {
-            $allblogs = moving_tips::orderBy('id', 'desc')->get();
+            $allblogs = Blogs::where('type',1)->orderBy('id', 'desc')->get();
         }
         else
         {
@@ -247,7 +247,7 @@ class BlogsController extends MainAdminController
         return view('admin.pages.blogs',compact('allblogs'));
     }
 
-    public function addeditblogs()    {
+    public function addeditblogs(){
 
         if(Auth::User()->usertype!="Admin"){
 
@@ -280,8 +280,6 @@ class BlogsController extends MainAdminController
             return redirect()->back()->withErrors($validator->messages());
         }
 
-        if(Route::currentRouteName() == 'post-blog')
-        {
 
             if(!empty($inputs['id'])){
 
@@ -352,156 +350,9 @@ class BlogsController extends MainAdminController
 
             }
 
-        }
-        elseif(Route::currentRouteName() == 'post-moving-tip')
-        {
-
-            if(!empty($inputs['id'])){
-
-                $blog = moving_tips::findOrFail($inputs['id']);
-
-                //Slide image
-                $t_user_image = $request->file('image');
-
-                if($t_user_image){
-
-                    \File::delete(public_path() .'/upload/moving-tips/'.$blog->image);
-
-                    $tmpFilePath = 'upload/moving-tips/';
-
-                    $filename = $_FILES['image']['name'];
-
-                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                    $hardPath =  Str::slug($inputs['title'], '-').'-'.md5(time());
-
-                    $image_file = $hardPath . '.' . $ext;
-
-                    $target_file = $tmpFilePath . $image_file;
-
-                    $img = Image::make($t_user_image);
-
-                    $img->save($target_file);
-
-                    $blog->image = $image_file;
-
-                }
-
-
-            }else{
-
-                $blog = new moving_tips;
-
-                //Slide image
-                $t_user_image = $request->file('image');
-
-                if($t_user_image){
-
-                    \File::delete(public_path() .'/upload/moving-tips/'.$blog->image);
-
-                    $tmpFilePath = 'upload/moving-tips/';
-
-                    $filename = $_FILES['image']['name'];
-
-                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                    $hardPath =  Str::slug($inputs['title'], '-').'-'.md5(time());
-
-                    $image_file = $hardPath . '.' . $ext;
-
-                    $target_file = $tmpFilePath . $image_file;
-
-                    $img = Image::make($t_user_image);
-
-                    $img->save($target_file);
-
-                    $blog->image = $image_file;
-
-                }
-                else
-                {
-                    $blog->image = '';
-                }
-
-            }
-
-        }
-        else
-        {
-            if(!empty($inputs['id'])){
-
-                $blog = Expats::findOrFail($inputs['id']);
-
-                //Slide image
-                $t_user_image = $request->file('image');
-
-                if($t_user_image){
-
-                    \File::delete(public_path() .'/upload/expats/'.$blog->image);
-
-                    $tmpFilePath = 'upload/expats/';
-
-                    $filename = $_FILES['image']['name'];
-
-                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                    $hardPath =  Str::slug($inputs['title'], '-').'-'.md5(time());
-
-                    $image_file = $hardPath . '.' . $ext;
-
-                    $target_file = $tmpFilePath . $image_file;
-
-                    $img = Image::make($t_user_image);
-
-                    $img->save($target_file);
-
-                    $blog->image = $image_file;
-
-                }
-
-            }else{
-
-                $blog = new Expats;
-
-                //Slide image
-                $t_user_image = $request->file('image');
-
-                if($t_user_image){
-
-                    \File::delete(public_path() .'/upload/expats/'.$blog->image);
-
-                    $tmpFilePath = 'upload/expats/';
-
-                    $filename = $_FILES['image']['name'];
-
-                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                    $hardPath =  Str::slug($inputs['title'], '-').'-'.md5(time());
-
-                    $image_file = $hardPath . '.' . $ext;
-
-                    $target_file = $tmpFilePath . $image_file;
-
-                    $img = Image::make($t_user_image);
-
-                    $img->save($target_file);
-
-                    $blog->image = $image_file;
-
-                }
-                else
-                {
-                    $blog->image = '';
-                }
-
-            }
-
-        }
-
-
-
         $blog->title = $inputs['title'];
         $blog->description = $inputs['description'];
+        $blog->type = $inputs['page'];
 
         $blog->save();
 

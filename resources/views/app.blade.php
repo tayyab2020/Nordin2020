@@ -50,15 +50,6 @@
 
 	{!! getcong('addthis_share_code')!!}
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HECLKHGS51"></script>
-      <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-HECLKHGS51');
-      </script>
 
 
   </head>
@@ -111,21 +102,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
-    <script type="text/javascript">
 
-    /* backstretch slider */
-    $('.header-slide').backstretch([
-      @foreach(\App\Slider::orderBy('name')->get() as $slide)
-      "{{ URL::asset('upload/slides/'.$slide->image_name.'.jpg') }}",
-
-      @endforeach
-      ], {
-        fade: 850,
-        duration: 4000
-    });
-
-
-	  </script>
 
       <style>
 

@@ -83,11 +83,11 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
         Route::get('blogs/addblog/{id}', 'BlogsController@editblog')->name('edit-blog');
         Route::get('blogs/delete/{id}', 'BlogsController@delete')->name('delete-blog');
 
-        Route::get('moving-tips', 'BlogsController@blogslist')->name('moving-tips');
-        Route::get('moving-tips/addmovingtip', 'BlogsController@addeditblogs')->name('add-moving-tip');
-        Route::post('moving-tips/addmovingtip', 'BlogsController@addnew')->name('post-moving-tip');
-        Route::get('moving-tips/addmovingtip/{id}', 'BlogsController@editblog')->name('edit-moving-tip');
-        Route::get('moving-tips/delete/{id}', 'BlogsController@delete')->name('delete-moving-tip');
+        Route::get('bewindvoering', 'BlogsController@blogslist')->name('bewindvoering-admin');
+        Route::get('bewindvoering/add', 'BlogsController@addeditblogs')->name('add-bewindvoering');
+        Route::post('bewindvoering/add', 'BlogsController@addnew')->name('post-bewindvoering');
+        Route::get('bewindvoering/add/{id}', 'BlogsController@editblog')->name('edit-bewindvoering');
+        Route::get('bewindvoering/delete/{id}', 'BlogsController@delete')->name('delete-bewindvoering');
 
         Route::get('moving-tips/moving-tips-content', 'BlogsController@movingtipscontentlist');
         Route::get('moving-tips/addmovingtipscontent', 'BlogsController@addeditmovingtipscontent');
@@ -200,8 +200,6 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
     Route::get('curatele', 'IndexController@Curatele')->name('Curatele');
 
     Route::get('tarieven', 'IndexController@Tarieven')->name('Tarieven');
-
-    Route::get('downloads', 'IndexController@Downloads')->name('Downloads');
 
     Route::get('verhuistips', 'IndexController@MovingTips')->name('front-moving-tips');
 

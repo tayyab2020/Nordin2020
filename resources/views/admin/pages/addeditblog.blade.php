@@ -11,11 +11,11 @@
 
                 <a href="{{ URL::to('admin/blogs') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
-            @elseif(Route::currentRouteName() == 'add-moving-tip' || Route::currentRouteName() == 'edit-moving-tip')
+            @elseif(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
 
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Moving Tip' }}</h2>
+                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Bewindvoering' }}</h2>
 
-                <a href="{{ URL::to('admin/moving-tips') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
+                <a href="{{ URL::to('admin/bewindvoering') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
             @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
 
@@ -59,10 +59,10 @@
                     {!! Form::open(array('url' => array('admin/blogs/addblog'),'class'=>'form-horizontal padding-15','name'=>'addblog_form','id'=>'addblog_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
                     <input type="hidden" name="page" value="blog">
 
-                @elseif(Route::currentRouteName() == 'add-moving-tip' || Route::currentRouteName() == 'edit-moving-tip')
+                @elseif(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
 
-                    {!! Form::open(array('url' => array('admin/moving-tips/addmovingtip'),'class'=>'form-horizontal padding-15','name'=>'addmovingtip_form','id'=>'addmovingtip_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="page" value="moving">
+                    {!! Form::open(array('url' => array('admin/bewindvoering/add'),'class'=>'form-horizontal padding-15','name'=>'addbewindvoering_form','id'=>'addbewindvoering_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
+                    <input type="hidden" name="type" value="1">
 
                 @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
 
@@ -78,37 +78,6 @@
 
                 <input type="hidden" name="id" value="{{ isset($blog->id) ? $blog->id : null }}">
 
-
-                    @if(Route::currentRouteName() == 'add-footer-page' || Route::currentRouteName() == 'edit-footer-page')
-
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Heading</label>
-                            <div class="col-sm-9">
-
-                                <select class="form-control" name="heading">
-
-                                    <option value="0">Company</option>
-
-                                    @foreach($headings as $key)
-
-                                        @if(isset($blog->heading_id))
-
-                                            <option value="{{$key->id}}" @if($blog->heading_id == $key->id) selected @endif>{{$key->heading}}</option>
-
-                                        @else
-
-                                            <option value="{{$key->id}}">{{$key->heading}}</option>
-
-                                        @endif
-
-                                    @endforeach
-
-                                </select>
-
-                            </div>
-                        </div>
-
-                    @endif
 
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Title</label>
@@ -146,8 +115,6 @@
 
                                 @if(isset($blog->image))
 
-                                    @if(Route::currentRouteName() == 'add-blog' || Route::currentRouteName() == 'edit-blog')
-
                                         @if($blog->image)
 
                                             <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" width="100">
@@ -157,48 +124,6 @@
                                             <img src="{{ URL::asset('upload/noImage.png') }}" width="100">
 
                                         @endif
-
-                                    @elseif(Route::currentRouteName() == 'add-moving-tip' || Route::currentRouteName() == 'edit-moving-tip')
-
-                                        @if($blog->image)
-
-                                            <img src="{{ URL::asset('upload/moving-tips/'.$blog->image) }}" width="100">
-
-                                        @else
-
-                                            <img src="{{ URL::asset('upload/noImage.png') }}" width="100">
-
-                                        @endif
-
-                                    @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
-
-                                        @if($blog->image)
-
-                                            <img src="{{ URL::asset('upload/expats/'.$blog->image) }}" width="100">
-
-                                        @else
-
-                                            <img src="{{ URL::asset('upload/noImage.png') }}" width="100">
-
-                                        @endif
-
-                                    @else
-
-                                        <input name="remove_image" id="remove_image" type="hidden">
-
-                                        @if($blog->image)
-
-                                            <span class="image-remove" style="color: red;position: absolute;left: -5px;cursor: pointer;"><i class="fa fa-close"></i></span>
-
-                                            <img class="footer-image" src="{{ URL::asset('upload/footer-pages/'.$blog->image) }}" width="100">
-
-                                        @else
-
-                                            <img src="{{ URL::asset('upload/noImage.png') }}" width="100">
-
-                                        @endif
-
-                                    @endif
 
                                 @endif
 
@@ -212,7 +137,6 @@
                 </div>
 
 
-
                 <hr>
                 <div class="form-group">
                     <div class="col-md-offset-3 col-sm-9 ">
@@ -221,9 +145,9 @@
 
                             <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Blog' : 'Add Blog' }}</button>
 
-                        @elseif(Route::currentRouteName() == 'add-moving-tip' || Route::currentRouteName() == 'edit-moving-tip')
+                        @elseif(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
 
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Moving Tip' : 'Add Moving Tip' }}</button>
+                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Bewindvoering' : 'Add Bewindvoering' }}</button>
 
                         @elseif(Route::currentRouteName() == 'add-expat' || Route::currentRouteName() == 'edit-expat')
 
@@ -250,18 +174,3 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script>
-
-
-    $( document ).ready(function() {
-
-        $(".image-remove").click(function () {
-            $(".image-remove").remove();
-            $(".footer-image").remove();
-            $('#remove_image').val(1);
-        });
-
-    });
-
-</script>

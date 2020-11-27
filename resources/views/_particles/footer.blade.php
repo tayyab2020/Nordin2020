@@ -12,64 +12,10 @@
                     <li><a href="{{ URL::to('cookieverklaring')}}">{{__('text.Careers with Us')}}</a></li>
                     <li><a href="{{ URL::to('algemene-voorwaarden')}}">{{__('text.Terms & Conditions')}}</a></li>
                     <li><a href="{{ URL::to('privacy-beleid')}}">{{__('text.Privacy Policy')}}</a></li>
-                    @foreach($footer_content as $i => $key)
 
-                        @if($key->heading_id == 0)
-
-                            <li><a href="{{ url('footer-pages/'.$key->id) }}">{{$key->title}}</a></li>
-
-                        @endif
-
-                    @endforeach
                 </ul>
             </div>
           </div>
-          <!-- break -->
-
-           @foreach($footer_headings as $x => $temp)
-
-               @if($footer_content->contains('heading_id', $temp->id))
-
-                   <div class="col-md-3 col-sm-6 col-xs-12">
-                       <div class="widget">
-                           <h3>{{$temp->heading}}</h3>
-
-                           <ul class="list-unstyled">
-
-                               @foreach($footer_content as $i => $key)
-
-                                   @if($temp->id == $key->heading_id)
-
-                                       <li><a href="{{ url('footer-pages/'.$key->id) }}">{{$key->title}}</a></li>
-
-                                   @endif
-
-                               @endforeach
-
-                           </ul>
-                       </div>
-                   </div>
-
-           @endif
-
-       @endforeach
-
-          <!-- break -->
-
-          {{--<div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="widget">
-              {!!getcong('footer_widget2')!!}
-            </div>
-          </div>--}}
-          <!-- break -->
-
-          {{--<div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="widget">
-              {!!getcong('footer_widget3')!!}
-
-            </div>
-          </div>--}}
-          <!-- break -->
 
         </div>
         <!-- break -->
@@ -83,7 +29,7 @@
 
                   <a href="#top" class="btn btn-primary scroltop"><i class="fa fa-angle-up"></i></a>
 
-                  <h4 style="margin-bottom: 30px;">{{__('text.Stay informed and quickly find, sell or rent your home')}}</h4>
+                  <h4 style="margin-bottom: 30px;font-size: 18px;color: inherit;">{{__('text.Stay informed and quickly find, sell or rent your home')}}</h4>
 
                   @if(getcong('social_facebook'))
                       <li><a href="{{getcong('social_facebook')}}" class="icon-facebook" rel="tooltip" title="" data-placement="bottom" data-original-title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>

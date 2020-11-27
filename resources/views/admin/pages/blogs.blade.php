@@ -12,14 +12,13 @@
 
             <h2>Blogs</h2>
 
-                @elseif(Route::currentRouteName() == 'moving-tips')
+                @elseif(Route::currentRouteName() == 'bewindvoering-admin')
 
                 <div class="pull-right">
-                    <a href="{{URL::to('admin/moving-tips/moving-tips-content')}}" class="btn btn-success">Moving Tips Content <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-book"></i></a>
-                    <a href="{{URL::to('admin/moving-tips/addmovingtip')}}" class="btn btn-primary">Add Moving Tip <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
+                    <a href="{{URL::to('admin/bewindvoering/add')}}" class="btn btn-primary">Add Bewindvoering <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
                 </div>
 
-                <h2>Moving Tips</h2>
+                <h2>Bewindvoering</h2>
 
             @elseif(Route::currentRouteName() == 'expats')
 
