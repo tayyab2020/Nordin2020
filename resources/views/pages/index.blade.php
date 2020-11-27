@@ -147,7 +147,7 @@
 
                       <img src="{{ URL::asset('assets/img/Career-in-Counseling_Image-1.jpg') }}" style="width: 100%;margin-top: 10px;" aria-hidden="true">
 
-                      <button class="btn btn-primary b-text" style="margin-top: 20px;width: 100%;padding: 15px;font-size: 20px;outline: none;">Online verzoekschrift aanvraag bewindvoering</button>
+                      <a href="{{ URL::to('contact') }}" class="btn btn-primary b-text" style="margin-top: 20px;width: 100%;padding: 15px;font-size: 20px;outline: none;">Online verzoekschrift aanvraag bewindvoering</a>
 
                   </div>
 
