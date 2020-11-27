@@ -145,7 +145,7 @@
 
                   <div style="width: 100%;">
 
-                      <img src="{{ URL::asset('assets/img/Career-in-Counseling_Image-1.jpg') }}" style="width: 100%;" aria-hidden="true">
+                      <img src="{{ URL::asset('assets/img/Career-in-Counseling_Image-1.jpg') }}" style="width: 100%;margin-top: 10px;" aria-hidden="true">
 
                       <button class="btn btn-primary b-text" style="margin-top: 20px;width: 100%;padding: 15px;font-size: 20px;outline: none;">Online verzoekschrift aanvraag bewindvoering</button>
 
@@ -288,7 +288,7 @@
 
     @media(min-width:1021px){.css-48sroz{border-radius:3px;display: block;}}
 
-    .css-48sroz li{font-weight:bold;margin:0px 0px 20px 0px;background-color:#fff;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);flex: 0 45%;}
+    .css-48sroz li{border-radius: 5px;font-weight:bold;margin:0px 0px 20px 0px;background-color:#fff;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);flex: 0 48%;}
 
     .css-48sroz li div
     {
@@ -309,9 +309,7 @@
 
     .css-48sroz li:hover,.css-48sroz li:focus{box-shadow:0 3px 6px 0 rgba(30,41,61,0.15),0 5px 10px 0 rgba(30,41,61,0.15);-webkit-transition:box-shadow ease-in 100ms;transition:box-shadow ease-in 100ms;z-index:1;}
 
-    @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);border-right:1px solid #e6e9ed;}
-
-    .css-48sroz li:last-child{border-right-width:0;}}
+    @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);}
 
     .css-48sroz a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 90%;}
 
