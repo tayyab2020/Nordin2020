@@ -34,6 +34,8 @@
 
                     <li class="{{classActivePath('faqs')}}"><a href="{{ URL::to('admin/faqs') }}"><i class="fa fa-question"></i> FAQ's</a></li>
 
+                    <li class="{{classActivePath('details')}}"><a href="{{ URL::to('admin/details') }}"><i class="fa fa-list"></i> Details</a></li>
+
                     <li class="{{classActivePath('bewindvoering')}}"><a href="{{ URL::to('admin/bewindvoering') }}"><i class="fa fa-list"></i> Bewindvoering</a></li>
 
 	                <li class="{{classActivePath('mentorschap')}}"><a href="{{ URL::to('admin/mentorschap') }}"><i class="fa fa-list"></i> Mentorschap</a></li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\appointments;
 use App\footer_headings;
 use App\footer_pages;
 use Auth;
@@ -36,13 +37,26 @@ class DashboardController extends MainAdminController
 
     }
 
+    public function Details()
+    {
+        $details = appointments::orderBy('id', 'desc')->get();
+
+        return view('admin.pages.appointments',compact('details'));
+    }
+
+    public function DetailsById($id)
+    {
+        $details = appointments::where('id',$id)->first();
+
+        return view('admin.pages.appointment',compact('details'));
+    }
+
     public function faq()
     {
             $faqs = faqs::orderBy('id', 'desc')->get();
 
         return view('admin.pages.faqs',compact('faqs'));
     }
-
 
     public function addeditfaq(){
 
