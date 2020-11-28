@@ -290,6 +290,7 @@
         text-align: center;
         display: flex;
         justify-content: center;
+        padding-bottom: 10px;
     }
 
     .css-48sroz li div img
@@ -308,7 +309,7 @@
 
     @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);}}
 
-    .css-48sroz p{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:block;min-height: 80%;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 90%;}
+    .css-48sroz p{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:block;min-height: 80%;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 95%;}
 
     @media(min-width:1021px){.css-48sroz p{display:block;padding:20px 18px;height:100%;}}
 
