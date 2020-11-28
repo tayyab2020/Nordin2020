@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\appointments;
 use App\Blogs;
 use App\cookies;
 use App\Expats;
@@ -938,6 +939,78 @@ class IndexController extends Controller
         $faqs = faqs::orderBy('id', 'desc')->take(5)->get();
 
         return view('pages.index',compact('faqs','blogs'));
+    }
+
+    public function Appointment()
+    {
+        return view('pages.details');
+    }
+
+    public function PostAppointment(Request $request)
+    {
+        if($request->income)
+        {
+            $incomes = implode(',', $request->income);
+        }
+        else
+        {
+            $incomes = '';
+        }
+
+        $post = new appointments();
+        $post->call_sign = $request->call_sign;
+        $post->initials = $request->initials;
+        $post->first_name = $request->first_name;
+        $post->last_name = $request->last_name;
+        $post->insertions = $request->insertions;
+        $post->postal_code = $request->postal_code;
+        $post->place = $request->place;
+        $post->phone = $request->phone;
+        $post->bsn = $request->bsn;
+        $post->address = $request->address;
+        $post->gender = $request->gender;
+        $post->dob = $request->dob;
+        $post->birthplace = $request->birthplace;
+        $post->nationality = $request->nationality;
+        $post->country = $request->country;
+        $post->marital_status = $request->marital_status;
+        $post->living_situation = $request->living_situation;
+        $post->partner_first_name = $request->partner_first_name;
+        $post->partner_last_name = $request->partner_last_name;
+        $post->partner_insertions = $request->partner_insertions;
+        $post->partner_call_sign = $request->partner_call_sign;
+        $post->partner_gender = $request->partner_gender;
+        $post->partner_dob = $request->partner_dob;
+        $post->partner_birthplace = $request->partner_birthplace;
+        $post->partner_nationality = $request->partner_nationality;
+        $post->partner_country = $request->partner_country;
+        $post->partner_bsn = $request->partner_bsn;
+        $post->registration = $request->registration;
+        $post->measure = $request->measure;
+        $post->name_of_applicant = $request->name_of_applicant;
+        $post->email = $request->email;
+        $post->applicant_phone = $request->applicant_phone;
+        $post->house = $request->house;
+        $post->income = $incomes;
+        $post->bank = $request->bank;
+        $post->account_number = $request->account_number;
+        $post->currently = $request->currently;
+        $post->with_whom = $request->with_whom;
+        $post->reason = $request->reason;
+        $post->save();
+
+        Mail::send('emails.appointment',
+            array(
+                'name' => $request->name_of_applicant,
+                'email' => $request->email,
+                'phone' => $request->applicant_phone,
+            ), function($message)
+            {
+                $message->from(getcong('site_email'));
+                $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name').' Contact');
+            });
+
+        return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
     }
 
     public function Blogs()

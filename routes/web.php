@@ -190,6 +190,10 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
 
     Route::get('/', 'IndexController@index');
 
+    Route::get('details', 'IndexController@Appointment');
+
+    Route::post('details', 'IndexController@PostAppointment');
+
     Route::post('change-language', 'IndexController@changeLanguage');
 
     Route::get('blogs', 'IndexController@Blogs')->name('front-blogs');
