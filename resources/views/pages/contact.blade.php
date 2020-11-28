@@ -29,8 +29,7 @@
             <div class="blog-container" style="margin: 0;">
               <div class="blog-content" style="padding:0px;">
                   <div class="blog-title" style="padding: 0;">
-                  <h3 style="font-size: 20px;">Heb je vragen of een opmerking? Stuur deze gerust door een mail te sturen naar: info@optelbewind.nl of door het contactformulier in te vullen.
-                      Om jou niet langer te laten wachten dan strikt noodzakelijk, reageren we binnen 1 werkdag.</h3>
+                  <h3 style="font-weight: 100;">{!! $settings->contact_heading !!}</h3>
 
                 </div>
 
@@ -68,7 +67,46 @@
                           <div class="col-md-8 col-sm-7">
                               {!! Form::open(array('url' => 'contact','class'=>'','id'=>'contactform','role'=>'form')) !!}
 
+
                               <div class="form-group">
+
+                                  <div style="position: relative;width: 100%;">
+
+                                      <h4 style="margin-bottom: 20px;">When do you prefer to be called?</h4>
+
+                                      <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
+
+                                          <label style="margin-left: 5px;display: block;">
+                                              <input type="radio" name="time_slot" value="08:00 - 12:00" checked />
+                                              <span class="radio"></span>
+                                              <span class="label">08:00 - 12:00</span>
+                                          </label>
+
+                                          <label style="margin-left: 5px;display: block;margin-top: 10px;">
+                                              <input type="radio" name="time_slot" value="12:00 - 18:00"/>
+                                              <span class="radio"></span>
+                                              <span class="label">12:00 - 18:00</span>
+                                          </label>
+
+                                          <label style="margin-left: 5px;display: block;margin-top: 10px;">
+                                              <input type="radio" name="time_slot" value="after 18:00"/>
+                                              <span class="radio"></span>
+                                              <span class="label">After 18:00</span>
+                                          </label>
+
+                                          <label style="margin-left: 5px;display: block;margin-top: 10px;">
+                                              <input type="radio" name="time_slot" value="I dont want to be called"/>
+                                              <span class="radio"></span>
+                                              <span class="label">I dont want to be called</span>
+                                          </label>
+
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                              <div class="form-group" style="margin-top: 20px;">
                                   <label for="name" class="sr-only">Jouw naam</label>
                                   <input type="text" name="name" class="form-control" placeholder="Jouw naam">
                               </div>
@@ -76,6 +114,11 @@
                               <div class="form-group">
                                   <label for="email" class="sr-only">E-mailadres?</label>
                                   <input type="email" name="email" class="form-control" placeholder="E-mailadres?">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="email" class="sr-only">Phone Number</label>
+                                  <input type="text" name="phone" class="form-control" placeholder="Phone Number">
                               </div>
 
                               <div class="form-group">
@@ -108,5 +151,163 @@
       </div>
     </div>
     <!-- end:content -->
+
+    <style>
+
+        .bulgy-radios {
+            width: 38rem;
+            padding: 0rem 0 0rem 0rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+        .bulgy-radios label {
+            display: inline-block;
+            position: relative;
+            height: 35px;
+            padding-left: 20px;
+            margin-bottom: 0;
+            cursor: pointer;
+            font-size: 25px;
+            user-select: none;
+            color: #555;
+            letter-spacing: 1px;
+        }
+        .bulgy-radios label:hover input:not(:checked) ~ .radio {
+            opacity: 0.8;
+        }
+        .bulgy-radios .label {
+            display: flex;
+            align-items: center;
+            padding: 10px 30px 0px 0px;
+            color: #0bae72;
+        }
+        .bulgy-radios .label span {
+            line-height: 1em;
+        }
+        .bulgy-radios input {
+            position: absolute;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            left: -2000px;
+        }
+        .bulgy-radios input:checked ~ .radio {
+            background-color: #0ac07d;
+            transition: background 0.3s;
+        }
+        .bulgy-radios input:checked ~ .radio::after {
+            opacity: 1;
+        }
+        .bulgy-radios input:checked ~ .label {
+            color: #0bae72;
+        }
+        .bulgy-radios input:checked ~ .label span {
+            animation: bulge 0.75s forwards;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(1) {
+            animation-delay: 0.025s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(3) {
+            animation-delay: 0.075s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(4) {
+            animation-delay: 0.1s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(5) {
+            animation-delay: 0.125s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(6) {
+            animation-delay: 0.15s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(7) {
+            animation-delay: 0.175s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(8) {
+            animation-delay: 0.2s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(9) {
+            animation-delay: 0.225s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(10) {
+            animation-delay: 0.25s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(11) {
+            animation-delay: 0.275s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(12) {
+            animation-delay: 0.3s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(13) {
+            animation-delay: 0.325s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(14) {
+            animation-delay: 0.35s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(15) {
+            animation-delay: 0.375s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(16) {
+            animation-delay: 0.4s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(17) {
+            animation-delay: 0.425s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(18) {
+            animation-delay: 0.45s;
+        }
+        .bulgy-radios input:checked ~ .label span:nth-child(19) {
+            animation-delay: 0.475s;
+        }
+        .radio {
+            position: absolute;
+            top: 0.2rem;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            min-height: 0px;
+            background: #c9ded6;
+            border-radius: 50%;
+        }
+        .radio::after {
+            content: '';
+            position: absolute;
+            opacity: 0;
+            top: 4px;
+            left: 4px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        @keyframes bulge {
+            50% {
+                transform: rotate(4deg);
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+            100% {
+                transform: rotate(0);
+                font-size: 1em;
+                font-weight: bold;
+            }
+        }
+
+    </style>
+
+    <script>
+
+        const labels = document.querySelectorAll('.label');
+        labels.forEach(label => {
+            const chars = label.textContent.split('');
+            label.innerHTML = '';
+            chars.forEach(char => {
+                label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+            });
+        })
+
+    </script>
 
 @endsection

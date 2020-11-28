@@ -89,6 +89,7 @@ class SettingsController extends MainAdminController
 
 		$settings->site_style = $inputs['site_style'];
 		$settings->site_name = $inputs['site_name'];
+        $settings->contact_heading = $inputs['contact_heading'];
 		$settings->currency_sign = $inputs['currency_sign'];
 		$settings->site_email = $inputs['site_email'];
 		$settings->site_description = $inputs['site_description'];

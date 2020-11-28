@@ -1114,7 +1114,9 @@ class IndexController extends Controller
 
     public function contact_us_page()
     {
-        return view('pages.contact');
+        $settings = Settings::findOrFail(1);
+
+        return view('pages.contact',compact('settings'));
     }
 
     public function contact_us_sendemail(Request $request)
@@ -1127,6 +1129,7 @@ class IndexController extends Controller
 	    $rule=array(
 		        'name' => 'required',
 				'email' => 'required|email',
+		        'phone' => 'required',
 		        'user_message' => 'required'
 		   		 );
 
@@ -1143,6 +1146,8 @@ class IndexController extends Controller
         array(
             'name' => $inputs['name'],
             'email' => $inputs['email'],
+            'phone' => $inputs['phone'],
+            'time_slot' => $inputs['time_slot'],
             'user_message' => $inputs['user_message']
         ), function($message)
 	    {

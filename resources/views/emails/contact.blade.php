@@ -1,15 +1,21 @@
 You received a message from {{getcong('site_name')}}:
 
 <p>
-Name: {{ $name }}
+    Name: {{ $name }}
 </p>
 
 <p>
-{{ $email }}
+    Email: {{ $email }}
 </p>
 
- 
+<p>
+    Phone: {{ $phone }}
+</p>
 
 <p>
-{{ $user_message }}
+    Time Slot: {{$time_slot}}
+</p>
+
+<p>
+    Message: {{ $user_message }}
 </p>
