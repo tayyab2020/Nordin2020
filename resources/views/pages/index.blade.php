@@ -42,7 +42,7 @@
                                       $description = $blog->description;
                                       $description = preg_replace(array('#<[^>]+>#','#&nbsp;#'), ' ', $description);
                                       $description = trim($description);
-                                      $words_limit = 10;
+                                      $words_limit = 230;
 
                                       $link = $blog->link;
 
