@@ -271,8 +271,10 @@ class BlogsController extends MainAdminController
 
         $inputs = $request->all();
 
+
         $rule=array(
             'title' => 'required',
+            'button_title' => 'required',
             'description' => 'required',
             'image' => 'mimes:jpg,jpeg,gif,png'
         );
@@ -317,6 +319,33 @@ class BlogsController extends MainAdminController
                 }
 
 
+                $t_user_icon = $request->file('icon');
+
+                if($t_user_icon){
+
+                    \File::delete(public_path() .'/upload/blogs/icons/'.$blog->icon);
+
+                    $tmpFilePath = 'upload/blogs/icons/';
+
+                    $filename = $_FILES['icon']['name'];
+
+                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                    $hardPath =  Str::slug($inputs['title'], '-').'-'.md5(time());
+
+                    $image_file = $hardPath . '.' . $ext;
+
+                    $target_file = $tmpFilePath . $image_file;
+
+                    $img = Image::make($t_user_icon);
+
+                    $img->save($target_file);
+
+                    $blog->icon = $image_file;
+
+                }
+
+
             }else{
 
                 $blog = new Blogs;
@@ -352,11 +381,52 @@ class BlogsController extends MainAdminController
                     $blog->image = '';
                 }
 
+
+                $t_user_icon = $request->file('icon');
+
+                if($t_user_icon){
+
+                    \File::delete(public_path() .'/upload/blogs/icons/'.$blog->icon);
+
+                    $tmpFilePath = 'upload/blogs/icons/';
+
+                    $filename = $_FILES['icon']['name'];
+
+                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                    $hardPath =  Str::slug($inputs['title'], '-').'-'.md5(time());
+
+                    $image_file = $hardPath . '.' . $ext;
+
+                    $target_file = $tmpFilePath . $image_file;
+
+                    $img = Image::make($t_user_icon);
+
+                    $img->save($target_file);
+
+                    $blog->icon = $image_file;
+
+                }
+                else
+                {
+                    $blog->icon = '';
+                }
+
+
             }
 
+        if($request->link)
+        {
+            if (strpos($request->link,'https://') === false && strpos($request->link,'http://') === false){
+                $request->link = 'https://'.$request->link;
+            }
+        }
+
         $blog->title = $inputs['title'];
+        $blog->button_title = $inputs['button_title'];
         $blog->description = $inputs['description'];
         $blog->type = $inputs['type'];
+        $blog->link = $request->link;
 
         $blog->save();
 
@@ -407,6 +477,7 @@ class BlogsController extends MainAdminController
         $blog = Blogs::findOrFail($id);
 
         \File::delete(public_path() .'/upload/blogs/'.$blog->image);
+        \File::delete(public_path() .'/upload/blogs/icons/'.$blog->icon);
 
         $blog->delete();
 

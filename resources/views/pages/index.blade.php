@@ -35,69 +35,64 @@
 
                               <ul class="css-48sroz" style="list-style: none;padding: 0;display: flex;flex-wrap: wrap;justify-content: space-between;">
 
-                                  <li style="display: flex;flex-direction: column;">
+                                  @foreach($blogs as $blog)
 
-                                      <a target="_blank" href="#">
-                                          Als u op zoek bent naar een professionele bewindvoerder die transpat is in uw (financiēle) zaken en persoonlijk betrokken is in uw situatie, dan bent u bij Optel beiwnd aan het juiste adres. Samen zorgen we ervoor dat u snel weer grip hebt op uw financiēn.
-                                      </a>
+                                      <?php
 
-                                      <div style="width: 100%;margin-bottom: 20px;">
+                                      $description = $blog->description;
+                                      $description = preg_replace(array('#<[^>]+>#','#&nbsp;#'), ' ', $description);
+                                      $words_limit = 230;
 
-                                          <img src="{{ URL::asset('assets/img/user1.png') }}" aria-hidden="true">
+                                      $link = $blog->link;
 
-                                          <button class="btn btn-primary" style="outline: none;border-radius: 5px;">Ik wil meer weten over Optel bewind</button>
+                                      if(!$link)
+                                          {
+                                              if($blog->type == 1)
+                                                  {
+                                                      $url = URL::to('bewindvoering');
+                                                  }
+                                              elseif($blog->type == 2)
+                                                  {
+                                                      $url = URL::to('mentorschap');
+                                                  }
+                                              elseif($blog->type == 3)
+                                              {
+                                                  $url = URL::to('curatele');
+                                              }
+                                              else
+                                              {
+                                                  $url = URL::to('tarieven');
+                                              }
+                                          }
+                                      else
+                                          {
+                                              $url = $link;
+                                          }
 
-                                      </div>
+                                      ?>
 
-                                  </li>
+                                      <li style="display: flex;flex-direction: column;">
 
-                                  <li style="display: flex;flex-direction: column;">
+                                          <p style="margin-bottom: 0;height: auto;" target="_blank" href="#">
+                                              {!! Str::limit($description,$words_limit) !!}
+                                              @if(mb_strlen($description, "UTF-8") > $words_limit) <a href="{{$url}}">Read More</a> @endif
+                                          </p>
 
-                                      <a target="_blank" href="#">
-                                          Als u op zoek bent naar een professionele bewindvoerder die transpat is in uw (financiēle) zaken en persoonlijk betrokken is in uw situatie, dan bent u bij Optel beiwnd aan het juiste adres. Samen zorgen we ervoor dat u snel weer grip hebt op uw financiēn.
-                                      </a>
+                                          <div style="width: 100%;">
 
-                                      <div style="width: 100%;margin-bottom: 20px;">
+                                              @if($blog->icon)
 
-                                          <img src="{{ URL::asset('assets/img/user1.png') }}" aria-hidden="true">
+                                                  <img src="{{ URL::asset('upload/blogs/icons/'.$blog->icon) }}" aria-hidden="true">
 
-                                          <button class="btn btn-primary" style="outline: none;border-radius: 5px;">Ik wil meer weten over Optel bewind</button>
+                                              @endif
 
-                                      </div>
+                                              <a href="{{$url}}" class="btn btn-primary" style="outline: none;border-radius: 5px;">{{$blog->button_title}}</a>
 
-                                  </li>
+                                          </div>
 
-                                  <li style="display: flex;flex-direction: column;">
+                                      </li>
 
-                                      <a target="_blank" href="#">
-                                          Als u op zoek bent naar een professionele bewindvoerder die transpat is in uw (financiēle) zaken en persoonlijk betrokken is in uw situatie, dan bent u bij Optel beiwnd aan het juiste adres. Samen zorgen we ervoor dat u snel weer grip hebt op uw financiēn.
-                                      </a>
-
-                                      <div style="width: 100%;margin-bottom: 20px;">
-
-                                          <img src="{{ URL::asset('assets/img/user1.png') }}" aria-hidden="true">
-
-                                          <button class="btn btn-primary" style="outline: none;border-radius: 5px;">Ik wil meer weten over Optel bewind</button>
-
-                                      </div>
-
-                                  </li>
-
-                                  <li style="display: flex;flex-direction: column;">
-
-                                      <a target="_blank" href="#">
-                                          Als u op zoek bent naar een professionele bewindvoerder die transpat is in uw (financiēle) zaken en persoonlijk betrokken is in uw situatie, dan bent u bij Optel beiwnd aan het juiste adres. Samen zorgen we ervoor dat u snel weer grip hebt op uw financiēn.
-                                      </a>
-
-                                      <div style="width: 100%;margin-bottom: 20px;">
-
-                                          <img src="{{ URL::asset('assets/img/user1.png') }}" aria-hidden="true">
-
-                                          <button class="btn btn-primary" style="outline: none;border-radius: 5px;">Ik wil meer weten over Optel bewind</button>
-
-                                      </div>
-
-                                  </li>
+                                  @endforeach
 
                               </ul>
 
@@ -287,11 +282,13 @@
 
     @media(min-width:1021px){.css-48sroz{border-radius:3px;display: block;}}
 
-    .css-48sroz li{border-radius: 5px;font-weight:bold;margin:0px 0px 20px 0px;background-color:#fff;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);flex: 0 48%;}
+    .css-48sroz li{border-radius: 5px;font-weight:bold;margin:0px 0px 20px 0px;background-color:#fff;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);flex: 0 48%;min-height: 254px;}
 
     .css-48sroz li div
     {
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
     .css-48sroz li div img
@@ -299,7 +296,7 @@
         width: 30px;
     }
 
-    .css-48sroz li div button
+    .css-48sroz li div a
     {
         width: 75%;
         white-space: normal;
@@ -310,9 +307,9 @@
 
     @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);}}
 
-    .css-48sroz a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 90%;}
+    .css-48sroz p{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:block;min-height: 80%;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 90%;}
 
-    @media(min-width:1021px){.css-48sroz a{display:block;padding:20px 18px;height:100%;}}
+    @media(min-width:1021px){.css-48sroz p{display:block;padding:20px 18px;height:100%;}}
 
     .css-jeyium{stroke-linejoin:round;stroke-linecap:round;fill:none;vertical-align:middle;width:24px;height:24px;}
 

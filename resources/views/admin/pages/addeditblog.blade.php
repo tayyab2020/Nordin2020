@@ -78,7 +78,6 @@
 
                 <input type="hidden" name="id" value="{{ isset($blog->id) ? $blog->id : null }}">
 
-
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Title</label>
                     <div class="col-sm-9">
@@ -86,10 +85,23 @@
                     </div>
                 </div>
 
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Homepage Button Title</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="button_title" value="{{ isset($blog->button_title) ? $blog->button_title : null }}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Page Link</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="link" value="{{ isset($blog->link) ? $blog->link : null }}" class="form-control">
+                        </div>
+                    </div>
+
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Description</label>
                     <div class="col-sm-9">
-
                         <textarea name="description" rows="10" class="form-control summernote">{{ isset($blog->description) ? $blog->description : null }}</textarea>
                     </div>
                 </div>
@@ -108,7 +120,7 @@
                 </style>
 
                 <div class="form-group">
-                    <label for="avatar" class="col-sm-3 control-label">Image</label>
+                    <label for="avatar" class="col-sm-3 control-label">Blog Image</label>
                     <div class="col-sm-9">
                         <div class="media">
                             <div class="media-left">
@@ -118,10 +130,6 @@
                                         @if($blog->image)
 
                                             <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" width="100">
-
-                                        @else
-
-                                            <img src="{{ URL::asset('upload/noImage.png') }}" width="100">
 
                                         @endif
 
@@ -135,6 +143,31 @@
 
                     </div>
                 </div>
+
+                    <div class="form-group">
+                        <label for="avatar" class="col-sm-3 control-label">Homepage Blog Icon</label>
+                        <div class="col-sm-9">
+                            <div class="media">
+                                <div class="media-left">
+
+                                    @if(isset($blog->icon))
+
+                                        @if($blog->icon)
+
+                                            <img src="{{ URL::asset('upload/blogs/icons/'.$blog->icon) }}" width="100">
+
+                                        @endif
+
+                                    @endif
+
+                                </div>
+                                <div class="media-body media-middle">
+                                    <input type="file" name="icon" class="filestyle">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
 
                 <hr>

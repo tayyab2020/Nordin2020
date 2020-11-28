@@ -929,14 +929,15 @@ class IndexController extends Controller
 
     public function index()
     {
-
-    	if(!$this->alreadyInstalled()) {
+        if(!$this->alreadyInstalled()) {
             return redirect('install');
         }
 
+        $blogs = Blogs::orderBy('id', 'desc')->get();
+
         $faqs = faqs::orderBy('id', 'desc')->take(5)->get();
 
-        return view('pages.index',compact('faqs'));
+        return view('pages.index',compact('faqs','blogs'));
     }
 
     public function Blogs()

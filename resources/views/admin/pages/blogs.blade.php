@@ -55,7 +55,10 @@
                     <thead>
                     <tr>
                         <th>Image</th>
+                        <th>Icon</th>
                         <th>Title</th>
+                        <th>Button Title</th>
+                        <th>Link</th>
 
                         <th class="text-center width-100">Action</th>
                     </tr>
@@ -64,6 +67,7 @@
                     <tbody>
                     @foreach($allblogs as $i => $blog)
                         <tr>
+
                             <td>
 
                                     @if($blog->image)
@@ -72,7 +76,7 @@
 
                                     @else
 
-                                        <img src="{{ URL::asset('upload/noImage.png') }}" width="80" alt="">
+                                        ?
 
                                     @endif
 
@@ -80,7 +84,47 @@
 
                             <td>
 
-                                {{ $blog->title }}
+                                @if($blog->icon)
+
+                                    <img src="{{ URL::asset('upload/blogs/icons/'.$blog->icon) }}" width="30" alt="">
+
+                                @else
+
+                                    ?
+
+                                @endif
+
+                            </td>
+
+                            <td>
+
+                                @if(Route::currentRouteName() == 'bewindvoering-admin')
+
+                                    <a target="_blank" href="{{ url('bewindvoering') }}">{{ $blog->title }}</a>
+
+                                @elseif(Route::currentRouteName() == 'mentorschap-admin')
+
+                                    <a target="_blank" href="{{ url('mentorschap') }}">{{ $blog->title }}</a>
+
+                                @elseif(Route::currentRouteName() == 'curatele-admin')
+
+                                    <a target="_blank" href="{{ url('curatele') }}">{{ $blog->title }}</a>
+
+                                @else
+
+                                    <a target="_blank" href="{{ url('tarieven') }}">{{ $blog->title }}</a>
+
+                                @endif
+
+                            </td>
+
+                            <td>
+                                {{$blog->button_title}}
+                            </td>
+
+                            <td>
+
+                                <a target="_blank" href="{{ $blog->link }}">{{ $blog->link }}</a>
 
                             </td>
 
