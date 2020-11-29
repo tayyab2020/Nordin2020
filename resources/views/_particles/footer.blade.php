@@ -4,14 +4,8 @@
        <div class="row">
 
            <div class="col-md-3 col-sm-6 col-xs-12">
-               <div class="widget">
-                   {!!getcong('footer_widget1')!!}
-               </div>
-           </div>
-
-           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="widget">
-                <h3>{{getcong('site_name')}}</h3>
+                <h3 style="color: #4b4b4b;margin-top: 0;">{{getcong('site_name')}}</h3>
                 <ul class="list-unstyled">
                     <li><a href="{{ URL::to('over-ons') }}">{{__('text.About Us')}}</a></li>
                     <li><a href="{{ URL::to('contact') }}">{{__('text.Contact Us')}}</a></li>
@@ -22,6 +16,12 @@
                 </ul>
             </div>
           </div>
+
+           <div class="col-md-3 col-sm-6 col-xs-12">
+               <div class="widget">
+                   {!!getcong('footer_widget1')!!}
+               </div>
+           </div>
 
            <div class="col-md-3 col-sm-6 col-xs-12">
                <div class="widget">
@@ -87,8 +87,15 @@
 
 <style>
 
+    #footer{ background-color: white;}
+
+    #footer .widget > ul > li, #footer .widget > ul > li > a, #footer .widget ul > li, #footer .widget ul > li > a
+    {
+        font-weight: bold;
+    }
+
     .widget ul li a{color: #3bafda !important;}
 
-    .widget ul li a:hover{color: #fff !important;}
+    .widget ul li a:hover{color: #000000 !important;}
 
 </style>

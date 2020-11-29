@@ -65,14 +65,15 @@
                     <div class="col-sm-4">
                         <select id="basic" name="site_style" class="selectpicker show-tick form-control">
 
-		                        	<option value="blue" @if($settings->site_style=='blue')selected @endif>Blue</option>
+                            <option value="blue" @if($settings->site_style=='blue')selected @endif>Blue</option>
 
-		                        	<option value="green" @if($settings->site_style=='green')selected @endif >Green</option>
+                            <option value="green" @if($settings->site_style=='green')selected @endif >Green</option>
 
-									<option value="orange" @if($settings->site_style=='orange')selected @endif >Orange</option>
+                            <option value="orange" @if($settings->site_style=='orange')selected @endif >Orange</option>
 
-									<option value="red" @if($settings->site_style=='red')selected @endif >Red</option>
-									<option value="yellow" @if($settings->site_style=='yellow')selected @endif >Yellow</option>
+                            <option value="red" @if($settings->site_style=='red')selected @endif >Red</option>
+
+                            <option value="yellow" @if($settings->site_style=='yellow')selected @endif >Yellow</option>
 
 
                         </select>
@@ -83,9 +84,9 @@
                     <div class="col-sm-9">
                         <div class="media">
                             <div class="media-left">
-                                @if($settings->site_logo)
 
-									<img src="{{ URL::asset('upload/'.$settings->site_logo) }}" width="150" alt="person">
+                                @if($settings->site_logo)
+                                    <img src="{{ URL::asset('upload/'.$settings->site_logo) }}" width="150" alt="person">
 								@endif
 
                             </div>
@@ -155,19 +156,19 @@
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Footer widget 1</label>
                     <div class="col-sm-9">
-                        <textarea type="text" name="footer_widget1" class="form-control" rows="5" placeholder="A few words about site">{{ $settings->footer_widget1 }}</textarea>
+                        <textarea type="text" name="footer_widget1" class="form-control summernote" rows="5" placeholder="A few words about site">{{ $settings->footer_widget1 }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Footer widget 2</label>
                     <div class="col-sm-9">
-                        <textarea type="text" name="footer_widget2" class="form-control" rows="5" placeholder="A few words about site">{{ $settings->footer_widget2 }}</textarea>
+                        <textarea type="text" name="footer_widget2" class="form-control summernote" rows="5" placeholder="A few words about site">{{ $settings->footer_widget2 }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Footer widget 3</label>
                     <div class="col-sm-9">
-                        <textarea type="text" name="footer_widget3" class="form-control" rows="5" placeholder="A few words about site">{{ $settings->footer_widget3 }}</textarea>
+                        <textarea type="text" name="footer_widget3" class="form-control summernote" rows="5" placeholder="A few words about site">{{ $settings->footer_widget3 }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
