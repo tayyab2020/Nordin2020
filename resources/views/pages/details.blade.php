@@ -10,11 +10,11 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-sm-12">
                     <div class="page-title">
-                        <h2>Details</h2>
+                        <h2>Aanmelden</h2>
                     </div>
                     <ol class="breadcrumb">
                         <li><a href="{{ URL::to('/') }}">{{__('text.Home')}}</a></li>
-                        <li class="active">Details</li>
+                        <li class="active">Aanmelden</li>
                     </ol>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                                     <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12" style="padding: 0;box-shadow: -1px 2px 15px 6px #dbdbdb38;background-color: white;border-radius: 10px;">
 
                                         <div class="blog-title" style="padding: 0;margin-bottom: 0;">
-                                            <h3 style="font-weight: 600;font-size: 30px;text-align: center;">Detail of the person</h3>
+                                            <h3 style="font-weight: 600;font-size: 30px;text-align: center;">Aanmeldformulier Optelbewind</h3>
                                         </div>
 
                                         {!! Form::open(array('url' => 'details','class'=>'','id'=>'contactform','role'=>'form')) !!}
@@ -71,7 +71,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="call_sign" class="form-control" placeholder="Call Sign">
+                                                <input type="text" name="call_sign" class="form-control" placeholder="Roepnaam">
                                             </div>
 
                                         </div>
@@ -79,7 +79,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="initials" class="form-control" placeholder="Initials *" required>
+                                                <input type="text" name="initials" class="form-control" placeholder="Voorletters*" required>
                                             </div>
 
                                         </div>
@@ -87,7 +87,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="first_name" class="form-control" placeholder="First Name *" required>
+                                                <input type="text" name="first_name" class="form-control" placeholder="Voornamen voluit*" required>
                                             </div>
 
                                         </div>
@@ -95,7 +95,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="last_name" class="form-control" placeholder="Last Name *" required>
+                                                <input type="text" name="last_name" class="form-control" placeholder="Achternaam*" required>
                                             </div>
 
                                         </div>
@@ -103,7 +103,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="insertions" class="form-control" placeholder="Insertions">
+                                                <input type="text" name="insertions" class="form-control" placeholder="Tussenvoegsels">
                                             </div>
 
                                         </div>
@@ -111,7 +111,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="postal_code" class="form-control" placeholder="Postal Code *" required>
+                                                <input type="text" name="postal_code" class="form-control" placeholder="Postcode*" required>
                                             </div>
 
                                         </div>
@@ -119,7 +119,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="place" class="form-control" placeholder="Place *" required>
+                                                <input type="text" name="place" class="form-control" placeholder="Plaats*" required>
                                             </div>
 
                                         </div>
@@ -127,7 +127,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="phone" class="form-control" placeholder="Phone Number *" required>
+                                                <input type="text" name="phone" class="form-control" placeholder="Telefoonnummer**" required>
                                             </div>
 
                                         </div>
@@ -135,7 +135,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="bsn" class="form-control" placeholder="BSN *" required>
+                                                <input type="text" name="bsn" class="form-control" placeholder="BSN*" required>
                                             </div>
 
                                         </div>
@@ -143,7 +143,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="address" class="form-control" placeholder="Address *" required>
+                                                <input type="text" name="address" class="form-control" placeholder="Adres*" required>
                                             </div>
 
                                         </div>
@@ -154,20 +154,20 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Gender *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Geslacht *</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="gender" value="Male" checked />
+                                                            <input type="radio" name="gender" value="Man" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">Male</span>
+                                                            <span class="label">Man</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="gender" value="Female"/>
+                                                            <input type="radio" name="gender" value="Vrouw"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Female</span>
+                                                            <span class="label">Vrouw</span>
                                                         </label>
 
                                                     </div>
@@ -181,7 +181,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Date of birth *" name="dob" class="form-control" id='datetimepicker4' required />
+                                                <input type='text' placeholder="Geboortedatum*" name="dob" class="form-control" id='datetimepicker4' required />
                                             </div>
 
                                         </div>
@@ -189,7 +189,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Birthplace *" name="birthplace" class="form-control" required />
+                                                <input type='text' placeholder="Geboorteplaats*" name="birthplace" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -197,7 +197,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Nationality *" name="nationality" class="form-control" required />
+                                                <input type='text' placeholder="Nationaliteit*" name="nationality" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -205,7 +205,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Country of origin *" name="country" class="form-control" required />
+                                                <input type='text' placeholder="Land van herkomst*" name="country" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -216,38 +216,38 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Marital Status *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Burgelijke staat*</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="marital_status" value="Married" checked />
+                                                            <input type="radio" name="marital_status" value="gehuwd" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">Married</span>
+                                                            <span class="label">gehuwd</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="marital_status" value="Unmarried"/>
+                                                            <input type="radio" name="marital_status" value="ongehuwd"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Unmarried</span>
+                                                            <span class="label">ongehuwd</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="marital_status" value="Divorced"/>
+                                                            <input type="radio" name="marital_status" value="gescheiden"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Divorced</span>
+                                                            <span class="label">gescheiden</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="marital_status" value="Registered Partnership"/>
+                                                            <input type="radio" name="marital_status" value="geregistreerd partnerschap"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Registered Partnership</span>
+                                                            <span class="label">geregistreerd partnerschap</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="marital_status" value="Widow / Widower"/>
+                                                            <input type="radio" name="marital_status" value="weduwe/weduwenaar"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Widow / Widower</span>
+                                                            <span class="label">weduwe/weduwenaar</span>
                                                         </label>
 
                                                     </div>
@@ -264,56 +264,56 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Living Situation *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Woonsituatie*</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="living_situation" value="Single" checked />
+                                                            <input type="radio" name="living_situation" value="Alleenstaand" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">Single</span>
+                                                            <span class="label">Alleenstaand</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Single with children"/>
+                                                            <input type="radio" name="living_situation" value="alleenstaand met kinderen"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Single with children</span>
+                                                            <span class="label">alleenstaand met kinderen</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Living Together"/>
+                                                            <input type="radio" name="living_situation" value="samenwonend"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Living Together</span>
+                                                            <span class="label">samenwonend</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Living with children"/>
+                                                            <input type="radio" name="living_situation" value="samenwonend met kinderen"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Living with children</span>
+                                                            <span class="label">samenwonend met kinderen</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Stay in an institution"/>
+                                                            <input type="radio" name="living_situation" value="verblijf in een instelling"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Stay in an institution</span>
+                                                            <span class="label">verblijf in een instelling</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Without permanent residence"/>
+                                                            <input type="radio" name="living_situation" value="zonder vaste woonplaats"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Without permanent residence</span>
+                                                            <span class="label">zonder vaste woonplaats</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Living with parents"/>
+                                                            <input type="radio" name="living_situation" value="inwonend bij ouders"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Living with parents</span>
+                                                            <span class="label">inwonend bij ouders</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="living_situation" value="Boarder"/>
+                                                            <input type="radio" name="living_situation" value="kostganger"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Boarder</span>
+                                                            <span class="label">kostganger</span>
                                                         </label>
 
                                                     </div>
@@ -324,12 +324,12 @@
 
                                         </div>
 
-                                        <h3 style="text-align: center;margin: 20px 0px;display: inline-block;width: 100%;">Partner Data:</h3>
+                                        <h3 style="text-align: center;margin: 20px 0px;display: inline-block;width: 100%;">Gegevens partner</h3>
 
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="First Name" name="partner_first_name" class="form-control" />
+                                                <input type='text' placeholder="Voornamen voluit" name="partner_first_name" class="form-control" />
                                             </div>
 
                                         </div>
@@ -337,7 +337,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Last Name" name="partner_last_name" class="form-control" />
+                                                <input type='text' placeholder="Achternaam" name="partner_last_name" class="form-control" />
                                             </div>
 
                                         </div>
@@ -345,7 +345,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Insertions" name="partner_insertions" class="form-control" />
+                                                <input type='text' placeholder="Tussenvoegsels" name="partner_insertions" class="form-control" />
                                             </div>
 
                                         </div>
@@ -353,7 +353,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Call Sign" name="partner_call_sign" class="form-control" />
+                                                <input type='text' placeholder="Roepnaam" name="partner_call_sign" class="form-control" />
                                             </div>
 
                                         </div>
@@ -364,20 +364,20 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Gender</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Geslacht</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="partner_gender" value="Male" />
+                                                            <input type="radio" name="partner_gender" value="Man" />
                                                             <span class="radio"></span>
-                                                            <span class="label">Male</span>
+                                                            <span class="label">Man</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="partner_gender" value="Female"/>
+                                                            <input type="radio" name="partner_gender" value="Vrouw"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Female</span>
+                                                            <span class="label">Vrouw</span>
                                                         </label>
 
                                                     </div>
@@ -391,7 +391,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Date of birth" name="partner_dob" class="form-control" id='datetimepicker5' />
+                                                <input type='text' placeholder="Geboortedatum" name="partner_dob" class="form-control" id='datetimepicker5' />
                                             </div>
 
                                         </div>
@@ -399,7 +399,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Birthplace" name="partner_birthplace" class="form-control" />
+                                                <input type='text' placeholder="Geboorteplaats" name="partner_birthplace" class="form-control" />
                                             </div>
 
                                         </div>
@@ -407,7 +407,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Nationality" name="partner_nationality" class="form-control" />
+                                                <input type='text' placeholder="Nationaliteit" name="partner_nationality" class="form-control" />
                                             </div>
 
                                         </div>
@@ -415,7 +415,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Country of origin" name="partner_country" class="form-control" />
+                                                <input type='text' placeholder="Land van herkomst" name="partner_country" class="form-control" />
                                             </div>
 
                                         </div>
@@ -428,7 +428,7 @@
 
                                         </div>
 
-                                        <h3 style="text-align: center;margin: 20px 0px;display: inline-block;width: 100%;">Applicant:</h3>
+                                        <h3 style="text-align: center;margin: 20px 0px;display: inline-block;width: 100%;">Aanmelder</h3>
 
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
@@ -436,32 +436,32 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Registration made by *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Aanmelding gedaan door*</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="registration" value="Myself" checked />
+                                                            <input type="radio" name="registration" value="mijzelf" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">Myself</span>
+                                                            <span class="label">mijzelf</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="registration" value="Caregiver"/>
+                                                            <input type="radio" name="registration" value="hulpverlener"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Caregiver</span>
+                                                            <span class="label">hulpverlener</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="registration" value="Older"/>
+                                                            <input type="radio" name="registration" value="ouder"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Older</span>
+                                                            <span class="label">ouder</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="registration" value="Other"/>
+                                                            <input type="radio" name="registration" value="overig"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Other</span>
+                                                            <span class="label">overig</span>
                                                         </label>
 
                                                     </div>
@@ -478,32 +478,32 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Which Measure *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Welke maatregel*</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="measure" value="Receivership" checked />
+                                                            <input type="radio" name="measure" value="curatele" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">Receivership</span>
+                                                            <span class="label">curatele</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="measure" value="Administration"/>
+                                                            <input type="radio" name="measure" value="bewindvoering"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Administration</span>
+                                                            <span class="label">bewindvoering</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="measure" value="Management and mentorship"/>
+                                                            <input type="radio" name="measure" value="bewindvoering en mentorschap"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Management and mentorship</span>
+                                                            <span class="label">bewindvoering en mentorschap</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="measure" value="Mentorship only"/>
+                                                            <input type="radio" name="measure" value="alleen mentorschap"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Mentorship only</span>
+                                                            <span class="label">alleen mentorschap</span>
                                                         </label>
 
                                                     </div>
@@ -517,7 +517,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Name of applicant *" name="name_of_applicant" class="form-control" required />
+                                                <input type='text' placeholder="Naam aanmelder*" name="name_of_applicant" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -525,7 +525,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='email' placeholder="Email *" name="email" class="form-control" required />
+                                                <input type='email' placeholder="E-mail*" name="email" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -533,12 +533,12 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Phone Number *" name="applicant_phone" class="form-control" required />
+                                                <input type='text' placeholder="Telefoonnummer*" name="applicant_phone" class="form-control" required />
                                             </div>
 
                                         </div>
 
-                                        <h3 style="text-align: center;margin: 20px 0px;display: inline-block;width: 100%;">Financial Details:</h3>
+                                        <h3 style="text-align: center;margin: 20px 0px;display: inline-block;width: 100%;">Financiële gegevens</h3>
 
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
@@ -546,20 +546,20 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">House *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Woning*</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="house" value="Rent" checked />
+                                                            <input type="radio" name="house" value="Huur" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">Rent</span>
+                                                            <span class="label">Huur</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="house" value="Home"/>
+                                                            <input type="radio" name="house" value="Eigen huis"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Home</span>
+                                                            <span class="label">Eigen huis</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
@@ -569,15 +569,15 @@
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="house" value="Room"/>
+                                                            <input type="radio" name="house" value="Kamer"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Room</span>
+                                                            <span class="label">Kamer</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="house" value="Living at home"/>
+                                                            <input type="radio" name="house" value="Thuiswonend"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Living at home</span>
+                                                            <span class="label">Thuiswonend</span>
                                                         </label>
 
                                                     </div>
@@ -595,12 +595,12 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Income (Multiple choices possible)</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Inkomen (meerdere keuzes mogelijk)</h4>
 
                                                     <label class="container1">
-                                                        <input type="checkbox" name="income[]" value="Salary">
+                                                        <input type="checkbox" name="income[]" value="Loon">
                                                         <span class="checkmark"></span>
-                                                        <span class="checkmark-text">Salary</span>
+                                                        <span class="checkmark-text">Loon</span>
                                                     </label>
 
                                                     <label class="container1">
@@ -616,9 +616,9 @@
                                                     </label>
 
                                                     <label class="container1">
-                                                        <input type="checkbox" name="income[]" value="WAO / WIA">
+                                                        <input type="checkbox" name="income[]" value="WAO/WIA">
                                                         <span class="checkmark"></span>
-                                                        <span class="checkmark-text">WAO / WIA</span>
+                                                        <span class="checkmark-text">WAO/WIA</span>
                                                     </label>
 
                                                     <label class="container1">
@@ -628,15 +628,15 @@
                                                     </label>
 
                                                     <label class="container1">
-                                                        <input type="checkbox" name="income[]" value="Retirement">
+                                                        <input type="checkbox" name="income[]" value="Pensioen">
                                                         <span class="checkmark"></span>
-                                                        <span class="checkmark-text">Retirement</span>
+                                                        <span class="checkmark-text">Pensioen</span>
                                                     </label>
 
                                                     <label class="container1">
-                                                        <input type="checkbox" name="income[]" value="Other">
+                                                        <input type="checkbox" name="income[]" value="Overig">
                                                         <span class="checkmark"></span>
-                                                        <span class="checkmark-text">Other</span>
+                                                        <span class="checkmark-text">Overig</span>
                                                     </label>
 
                                                 </div>
@@ -648,7 +648,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Bank Name *" name="bank" class="form-control" required />
+                                                <input type='text' placeholder="Naam bank*" name="bank" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -656,7 +656,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Account Number *" name="account_number" class="form-control" required />
+                                                <input type='text' placeholder="Rekeningnummer*" name="account_number" class="form-control" required />
                                             </div>
 
                                         </div>
@@ -667,20 +667,20 @@
 
                                                 <div style="position: relative;width: 100%;">
 
-                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Currently under administration or guardianship *</h4>
+                                                    <h4 style="margin-bottom: 20px;padding-left: 5px;">Momenteel onder bewind of curatele?*</h4>
 
                                                     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
                                                         <label style="margin-left: 5px;display: block;">
-                                                            <input type="radio" name="currently" value="Rent" checked />
+                                                            <input type="radio" name="currently" value="Nee" checked />
                                                             <span class="radio"></span>
-                                                            <span class="label">No</span>
+                                                            <span class="label">Nee</span>
                                                         </label>
 
                                                         <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                                            <input type="radio" name="currently" value="Home"/>
+                                                            <input type="radio" name="currently" value="Ja"/>
                                                             <span class="radio"></span>
-                                                            <span class="label">Yes</span>
+                                                            <span class="label">Ja</span>
                                                         </label>
 
                                                     </div>
@@ -694,7 +694,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="If so, with whom?" name="with_whom" class="form-control" />
+                                                <input type='text' placeholder="Zo ja, bij wie?" name="with_whom" class="form-control" />
                                             </div>
 
                                         </div>
@@ -702,7 +702,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <textarea style="border-radius: 10px;" placeholder="What is the reason you want to switch" rows="5" name="reason" class="form-control"></textarea>
+                                                <textarea style="border-radius: 10px;" placeholder="Wat is de reden dat u wilt overstappen" rows="5" name="reason" class="form-control"></textarea>
                                             </div>
 
                                         </div>
@@ -710,7 +710,7 @@
                                         <div style="margin-top: 20px;margin-bottom: 20px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin: 0;">
-                                                <button style="outline: none;" type="submit" name="submit" class="btn btn-warning"><i style="margin-right: 5px;font-size: 15px;" class="fa fa-envelope-o"></i> Save</button>
+                                                <button style="outline: none;" type="submit" name="submit" class="btn btn-warning"><i style="margin-right: 5px;font-size: 15px;" class="fa fa-envelope-o"></i> Versturen</button>
                                             </div>
 
                                         </div>
