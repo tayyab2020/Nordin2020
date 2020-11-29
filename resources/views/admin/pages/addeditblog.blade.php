@@ -93,6 +93,13 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Homepage Description</label>
+                    <div class="col-sm-9">
+                        <textarea name="homepage_description" rows="10" class="form-control summernote">{{ isset($blog->homepage_description) ? $blog->homepage_description : old('homepage_description') }}</textarea>
+                    </div>
+                </div>
+
                 <style>
 
                     .checkbox input[type="checkbox"]

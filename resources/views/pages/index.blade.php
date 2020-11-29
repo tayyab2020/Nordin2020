@@ -39,7 +39,7 @@
 
                                       <?php
 
-                                      $description = $blog->description;
+                                      $description = $blog->homepage_description;
                                       $description = preg_replace(array('#<[^>]+>#','#&nbsp;#'), ' ', $description);
                                       $description = preg_replace('/\s+/', ' ', $description);
                                       $words_limit = 230;

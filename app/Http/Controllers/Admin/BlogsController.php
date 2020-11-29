@@ -626,6 +626,7 @@ class BlogsController extends MainAdminController
         $blog->title = $inputs['title'];
         $blog->button_title = $inputs['button_title'];
         $blog->description = $inputs['description'];
+        $blog->homepage_description = $request->homepage_description;
         $blog->link = $request->link;
         $blog->visible = $request->visible;
         $blog->menu = $request->menu;
