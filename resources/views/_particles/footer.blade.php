@@ -4,6 +4,12 @@
        <div class="row">
 
            <div class="col-md-3 col-sm-6 col-xs-12">
+               <div class="widget">
+                   {!!getcong('footer_widget1')!!}
+               </div>
+           </div>
+
+           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="widget">
                 <h3>{{getcong('site_name')}}</h3>
                 <ul class="list-unstyled">
@@ -16,6 +22,19 @@
                 </ul>
             </div>
           </div>
+
+           <div class="col-md-3 col-sm-6 col-xs-12">
+               <div class="widget">
+                   {!!getcong('footer_widget2')!!}
+               </div>
+           </div>
+           <!-- break -->
+           <div class="col-md-3 col-sm-6 col-xs-12">
+               <div class="widget">
+                   {!!getcong('footer_widget3')!!}
+
+               </div>
+           </div>
 
         </div>
         <!-- break -->
