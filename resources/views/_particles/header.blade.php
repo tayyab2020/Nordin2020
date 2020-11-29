@@ -26,10 +26,13 @@
 
           <ul class="nav navbar-nav navbar-right">
               <li class="{{classActivePathPublic('')}}"><a href="{{ URL::to('/') }}">{{__('text.Home')}}</a></li>
-              <li class="{{classActivePathPublic('bewindvoering')}}"><a href="{{route('Bewindvoering')}}">Bewindvoering</a></li>
-              <li class="{{classActivePathPublic('mentorschap')}}"><a href="{{route('Mentorschap')}}">Mentorschap</a></li>
-              <li class="{{classActivePathPublic('curatele')}}"><a href="{{ route('Curatele') }}">Curatele</a></li>
-              <li class="{{classActivePathPublic('tarieven')}}"><a href="{{ route('Tarieven') }}">Tarieven</a></li>
+
+              @foreach($menu_headings as $temp)
+
+                  <li @if(request()->segment(count(request()->segments())) == $temp->slug) class="active" @endif><a href="{{ URL::to('blogs/'.$temp->slug)  }}">{{$temp->title}}</a></li>
+
+              @endforeach
+
               <li style="margin-right: 10px;"><a href="{{ URL::to('contact') }}" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">Contact</a></li>
               <li><a href="https://mijn.onview.nl/" class="signup col-lg-12 col-md-3 col-sm-6 col-xs-6" style="margin-left: 0;float: none;">Mijn dossier</a></li>
           </ul>

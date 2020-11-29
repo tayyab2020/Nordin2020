@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\footer_pages;
+use App\menu_headings;
 use App\Observers\PropertiesObserver;
 use App\Properties;
 use App\user_languages;
@@ -75,6 +76,9 @@ class AppServiceProvider extends ServiceProvider
             \App::setLocale($language->lang);
         }*/
 
+        $menu_headings = menu_headings::orderBy('order_menu', 'asc')->get();
+
+        View::share('menu_headings', $menu_headings);
 
         $footer_content = footer_pages::all();
 

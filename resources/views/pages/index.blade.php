@@ -48,22 +48,7 @@
 
                                       if(!$link)
                                           {
-                                              if($blog->type == 1)
-                                                  {
-                                                      $url = URL::to('bewindvoering');
-                                                  }
-                                              elseif($blog->type == 2)
-                                                  {
-                                                      $url = URL::to('mentorschap');
-                                                  }
-                                              elseif($blog->type == 3)
-                                              {
-                                                  $url = URL::to('curatele');
-                                              }
-                                              else
-                                              {
-                                                  $url = URL::to('tarieven');
-                                              }
+                                              $url = URL::to('blogs/'.$blog->slug);
                                           }
                                       else
                                           {
@@ -76,7 +61,7 @@
 
                                           <p style="margin-bottom: 0;height: auto;" target="_blank" href="#">
                                               {!! Str::limit($description,$words_limit) !!}
-                                              @if(mb_strlen($description, "UTF-8") > $words_limit) <a href="{{$url}}">Read More</a> @endif
+                                              {{--@if(mb_strlen($description, "UTF-8") > $words_limit) <a href="{{$url}}">Read More</a> @endif--}}
                                           </p>
 
                                           <div style="width: 100%;">

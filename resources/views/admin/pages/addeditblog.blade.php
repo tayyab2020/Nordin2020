@@ -5,31 +5,9 @@
     <div id="main">
         <div class="page-header">
 
-            @if(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
+            <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Blog' }}</h2>
 
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Bewindvoering' }}</h2>
-
-                <a href="{{ URL::to('admin/bewindvoering') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
-
-            @elseif(Route::currentRouteName() == 'add-mentorschap' || Route::currentRouteName() == 'edit-mentorschap')
-
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Mentorschap' }}</h2>
-
-                <a href="{{ URL::to('admin/mentorschap') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
-
-            @elseif(Route::currentRouteName() == 'add-curatele' || Route::currentRouteName() == 'edit-curatele')
-
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Curatele' }}</h2>
-
-                <a href="{{ URL::to('admin/curatele') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
-
-            @else
-
-                <h2> {{ isset($blog->title) ? 'Edit: '. $blog->title : 'Add Tarieven' }}</h2>
-
-                <a href="{{ URL::to('admin/tarieven') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
-
-            @endif
+            <a href="{{ URL::to('admin/blogs') }}" class="btn btn-default-light btn-xs"><i class="md md-backspace"></i> Back</a>
 
         </div>
 
@@ -54,55 +32,64 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-                @if(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
-
-                    {!! Form::open(array('url' => array('admin/bewindvoering/add'),'class'=>'form-horizontal padding-15','name'=>'addbewindvoering_form','id'=>'addbewindvoering_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="type" value="1">
-
-                @elseif(Route::currentRouteName() == 'add-mentorschap' || Route::currentRouteName() == 'edit-mentorschap')
-
-                    {!! Form::open(array('url' => array('admin/mentorschap/add'),'class'=>'form-horizontal padding-15','name'=>'addmentorschap_form','id'=>'addmentorschap_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="type" value="2">
-
-                @elseif(Route::currentRouteName() == 'add-curatele' || Route::currentRouteName() == 'edit-curatele')
-
-                    {!! Form::open(array('url' => array('admin/curatele/add'),'class'=>'form-horizontal padding-15','name'=>'addcuratele_form','id'=>'addcuratele_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="type" value="3">
-
-                @else
-
-                    {!! Form::open(array('url' => array('admin/tarieven/add'),'class'=>'form-horizontal padding-15','name'=>'addtarieven_form','id'=>'addtarieven_form','role'=>'form','enctype' => 'multipart/form-data')) !!}
-                    <input type="hidden" name="type" value="4">
-
-                @endif
+                {!! Form::open(array('url' => array('admin/blogs/addblog'),'class'=>'form-horizontal padding-15','role'=>'form','enctype' => 'multipart/form-data')) !!}
 
                 <input type="hidden" name="id" value="{{ isset($blog->id) ? $blog->id : null }}">
 
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Title</label>
                     <div class="col-sm-9">
-                        <input type="text" name="title" value="{{ isset($blog->title) ? $blog->title : null }}" class="form-control">
+                        <input type="text" name="title" value="{{ isset($blog->title) ? $blog->title : old('title') }}" class="form-control">
                     </div>
                 </div>
 
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Homepage Button Title</label>
                         <div class="col-sm-9">
-                            <input type="text" name="button_title" value="{{ isset($blog->button_title) ? $blog->button_title : null }}" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="" class="col-sm-3 control-label">Page Link</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="link" value="{{ isset($blog->link) ? $blog->link : null }}" class="form-control">
+                            <input type="text" name="button_title" value="{{ isset($blog->button_title) ? $blog->button_title : old('button_title') }}" class="form-control">
                         </div>
                     </div>
 
                 <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Homepage Visible</label>
+                    <div class="col-sm-9">
+                        <select name="visible" class="form-control">
+                            <option @if(isset($blog) && $blog->visible) selected @endif value="1">Yes</option>
+                            <option @if(isset($blog) && !$blog->visible) selected @endif value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Menu Link</label>
+                    <div class="col-sm-9">
+                        <select name="menu" class="form-control">
+                            <option value="">Select Menu to link</option>
+                            @foreach($menus as $menu)
+                                <option @if(isset($blog) && $blog->menu == $menu->id) selected @endif value="{{$menu->id}}">{{$menu->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Page Link</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="link" value="{{ isset($blog->link) ? $blog->link : old('link') }}" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Blog order for homepage</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="order_blog" value="{{ isset($blog->order_blog) ? $blog->order_blog : old('order_blog') }}" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Description</label>
                     <div class="col-sm-9">
-                        <textarea name="description" rows="10" class="form-control summernote">{{ isset($blog->description) ? $blog->description : null }}</textarea>
+                        <textarea name="description" rows="10" class="form-control summernote">{{ isset($blog->description) ? $blog->description : old('description') }}</textarea>
                     </div>
                 </div>
 
@@ -174,23 +161,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-3 col-sm-9 ">
 
-                        @if(Route::currentRouteName() == 'add-bewindvoering' || Route::currentRouteName() == 'edit-bewindvoering')
-
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Bewindvoering' : 'Add Bewindvoering' }}</button>
-
-                        @elseif(Route::currentRouteName() == 'add-mentorschap' || Route::currentRouteName() == 'edit-mentorschap')
-
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Mentorschap' : 'Add Mentorschap' }}</button>
-
-                        @elseif(Route::currentRouteName() == 'add-curatele' || Route::currentRouteName() == 'edit-curatele')
-
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Curatele' : 'Add Curatele' }}</button>
-
-                        @else
-
-                            <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Tarieven' : 'Add Tarieven' }}</button>
-
-                        @endif
+                        <button type="submit" class="btn btn-primary">{{ isset($blog->title) ? 'Edit Blog' : 'Create Blog' }}</button>
 
                     </div>
                 </div>

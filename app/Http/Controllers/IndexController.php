@@ -9,6 +9,7 @@ use App\Expats;
 use App\faqs;
 use App\footer_pages;
 use App\HomepageIcons;
+use App\menu_headings;
 use App\moving_tips;
 use App\moving_tips_contents;
 use App\property_documents;
@@ -934,7 +935,7 @@ class IndexController extends Controller
             return redirect('install');
         }
 
-        $blogs = Blogs::orderBy('id', 'desc')->get();
+        $blogs = Blogs::leftjoin('menu_headings','menu_headings.id','=','blogs.menu')->where('blogs.visible',1)->orderBy('blogs.order_blog', 'asc')->select('blogs.*','menu_headings.slug')->get();
 
         $faqs = faqs::orderBy('id', 'desc')->take(5)->get();
 
@@ -1007,7 +1008,7 @@ class IndexController extends Controller
             ), function($message)
             {
                 $message->from('info@optelbewind.nl');
-                $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name').' Contact');
+                $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name'));
             });
 
         return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
@@ -1020,11 +1021,11 @@ class IndexController extends Controller
         return view('pages.blogs',compact('blogs'));
     }
 
-    public function Blog($id)
+    public function Blog($slug)
     {
-        $blog = Blogs::where('id',$id)->first();
+        $blogs = Blogs::leftjoin('menu_headings','menu_headings.id','=','blogs.menu')->where('menu_headings.slug',$slug)->get();
 
-        return view('pages.blog',compact('blog'));
+        return view('pages.blogs',compact('blogs'));
     }
 
     public function FooterPage($id)

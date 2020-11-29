@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\menu_headings;
 use App\moving_tips_contents;
 use App\Expats;
 use App\moving_tips;
+use App\Properties;
 use App\Settings;
 use Auth;
 use App\User;
@@ -229,24 +231,170 @@ class BlogsController extends MainAdminController
 
     }
 
+    public function MenuHeadings()
+    {
+        $menus = menu_headings::orderBy('id', 'desc')->get();
+
+        return view('admin.pages.menu_headings',compact('menus'));
+    }
+
+    public function AddMenuHeading(){
+
+        if(Auth::User()->usertype!="Admin"){
+
+            \Session::flash('flash_message', 'Access denied!');
+
+            return redirect('admin/dashboard');
+
+        }
+
+        return view('admin.pages.addeditmenuheading');
+    }
+
+    public function PostMenuHeading(Request $request)
+    {
+
+        $data =  \Request::except(array('_token')) ;
+
+        $inputs = $request->all();
+
+
+        $rule=array(
+            'title' => 'required',
+        );
+
+        $validator = \Validator::make($data,$rule);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator->messages());
+        }
+
+
+        if(!empty($inputs['id'])){
+
+            $menu = menu_headings::findOrFail($inputs['id']);
+
+            $org_slug = Str::slug($request->title, "-");
+
+            if (menu_headings::where('slug',$org_slug)->where('id','!=',$menu->id)->exists()) {
+                $org_slug = $this->incrementSlug($org_slug);
+            }
+
+            if(!$request->order_menu)
+            {
+                $last = menu_headings::orderBy('order_menu', 'desc')->first();
+
+                $inputs['order_menu'] = $last->order_menu + 1;
+            }
+            else
+            {
+                $check = menu_headings::where('order_menu', $request->order_menu)->where('id','!=',$request->id)->first();
+
+                if($check)
+                {
+                    return redirect()->back()->withErrors('This Order number for menu is already taken!')->withInput();
+                }
+            }
+
+        }else{
+
+            $menu = new menu_headings();
+
+            $org_slug = Str::slug($request->title, "-");
+
+            if (menu_headings::where('slug',$org_slug)->exists()) {
+                $org_slug = $this->incrementSlug($org_slug);
+            }
+
+            if(!$request->order_menu)
+            {
+                $last = menu_headings::orderBy('order_menu', 'desc')->first();
+
+                if(!$last)
+                {
+                    $inputs['order_menu'] = 1;
+                }
+                else
+                {
+                    $inputs['order_menu'] = $last->order_menu + 1;
+                }
+            }
+            else
+            {
+                $check = menu_headings::where('order_menu', $request->order_menu)->first();
+
+                if($check)
+                {
+                    return redirect()->back()->withErrors('This Order number for menu is already taken!')->withInput();
+                }
+            }
+
+        }
+
+
+        $menu->title = $inputs['title'];
+        $menu->slug = $org_slug;
+        $menu->order_menu = $inputs['order_menu'];
+
+        $menu->save();
+
+        if(!empty($inputs['id'])){
+
+            \Session::flash('flash_message', 'Changes Saved');
+
+            return \Redirect::back();
+        }else{
+
+            \Session::flash('flash_message', 'Added');
+
+            return \Redirect::back();
+
+        }
+
+
+    }
+
+    public function EditMenuHeading($id)
+    {
+
+        if(Auth::User()->usertype!="Admin"){
+
+            \Session::flash('flash_message', 'Access denied!');
+
+            return redirect('admin/dashboard');
+
+        }
+
+        $menu = menu_headings::where('id',$id)->first();
+
+        return view('admin.pages.addeditmenuheading',compact('menu'));
+
+    }
+
+    public function DeleteMenuHeading($id)
+    {
+
+        if(Auth::User()->usertype!="Admin"){
+
+            \Session::flash('flash_message', 'Access denied!');
+
+            return redirect('admin/dashboard');
+
+        }
+
+        Blogs::where('menu',$id)->delete();
+        menu_headings::where('id',$id)->delete();
+
+        \Session::flash('flash_message', 'Deleted');
+
+        return redirect()->back();
+
+    }
+
     public function blogslist()
     {
-        if(Route::currentRouteName() == 'bewindvoering-admin')
-        {
-            $allblogs = Blogs::where('type',1)->orderBy('id', 'desc')->get();
-        }
-        elseif(Route::currentRouteName() == 'mentorschap-admin')
-        {
-            $allblogs = Blogs::where('type',2)->orderBy('id', 'desc')->get();
-        }
-        elseif(Route::currentRouteName() == 'curatele-admin')
-        {
-            $allblogs = Blogs::where('type',3)->orderBy('id', 'desc')->get();
-        }
-        else
-        {
-            $allblogs = Blogs::where('type',4)->orderBy('id', 'desc')->get();
-        }
+        $allblogs = Blogs::leftjoin('menu_headings','menu_headings.id','=','blogs.menu')->orderBy('blogs.id', 'desc')->select('blogs.*','menu_headings.title as menu_title')->get();
 
         return view('admin.pages.blogs',compact('allblogs'));
     }
@@ -261,7 +409,9 @@ class BlogsController extends MainAdminController
 
         }
 
-        return view('admin.pages.addeditblog');
+        $menus = menu_headings::orderBy('order_menu', 'asc')->get();
+
+        return view('admin.pages.addeditblog',compact('menus'));
     }
 
     public function addnew(Request $request)
@@ -345,6 +495,28 @@ class BlogsController extends MainAdminController
 
                 }
 
+                $org_slug = Str::slug($request->title, "-");
+
+                if (Blogs::where('slug',$org_slug)->where('id','!=',$blog->id)->exists()) {
+                    $org_slug = $this->incrementSlug1($org_slug);
+                }
+
+                if(!$request->order_blog)
+                {
+                    $last = Blogs::orderBy('order_blog', 'desc')->first();
+
+                    $inputs['order_blog'] = $last->order_blog + 1;
+                }
+                else
+                {
+                    $check = Blogs::where('order_blog', $request->order_blog)->where('id','!=',$request->id)->first();
+
+                    if($check)
+                    {
+                        return redirect()->back()->withErrors('This Order number for blog is already taken!')->withInput();
+                    }
+                }
+
 
             }else{
 
@@ -413,6 +585,35 @@ class BlogsController extends MainAdminController
                 }
 
 
+                $org_slug = Str::slug($request->title, "-");
+
+                if (Blogs::where('slug',$org_slug)->exists()) {
+                    $org_slug = $this->incrementSlug1($org_slug);
+                }
+
+                if(!$request->order_blog)
+                {
+                    $last = Blogs::orderBy('order_blog', 'desc')->first();
+
+                    if(!$last)
+                    {
+                        $inputs['order_blog'] = 1;
+                    }
+                    else
+                    {
+                        $inputs['order_blog'] = $last->order_blog + 1;
+                    }
+                }
+                else
+                {
+                    $check = Blogs::where('order_blog', $request->order_blog)->first();
+
+                    if($check)
+                    {
+                        return redirect()->back()->withErrors('This Order number for blog is already taken!')->withInput();
+                    }
+                }
+
             }
 
         if($request->link)
@@ -425,8 +626,11 @@ class BlogsController extends MainAdminController
         $blog->title = $inputs['title'];
         $blog->button_title = $inputs['button_title'];
         $blog->description = $inputs['description'];
-        $blog->type = $inputs['type'];
         $blog->link = $request->link;
+        $blog->visible = $request->visible;
+        $blog->menu = $request->menu;
+        $blog->slug = $org_slug;
+        $blog->order_blog = $inputs['order_blog'];
 
         $blog->save();
 
@@ -459,7 +663,9 @@ class BlogsController extends MainAdminController
 
         $blog = Blogs::where('id',$id)->first();
 
-        return view('admin.pages.addeditblog',compact('blog'));
+        $menus = menu_headings::orderBy('id', 'asc')->get();
+
+        return view('admin.pages.addeditblog',compact('blog','menus'));
 
     }
 
@@ -484,6 +690,36 @@ class BlogsController extends MainAdminController
         \Session::flash('flash_message', 'Deleted');
 
         return redirect()->back();
+
+    }
+
+    public function incrementSlug($slug) {
+
+        $original = $slug;
+
+        $count = 2;
+
+        while (menu_headings::where('slug',$slug)->exists()) {
+
+            $slug = "{$original}-" . $count++;
+        }
+
+        return $slug;
+
+    }
+
+    public function incrementSlug1($slug) {
+
+        $original = $slug;
+
+        $count = 2;
+
+        while (Blogs::where('slug',$slug)->exists()) {
+
+            $slug = "{$original}-" . $count++;
+        }
+
+        return $slug;
 
     }
 

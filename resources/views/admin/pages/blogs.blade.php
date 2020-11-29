@@ -4,39 +4,15 @@
     <div id="main">
         <div class="page-header">
 
-            @if(Route::currentRouteName() == 'bewindvoering-admin')
+            <div class="pull-right" style="margin-left: 10px;">
+                <a href="{{URL::to('admin/menu/add')}}" class="btn btn-success">Add Menu Heading <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
+            </div>
 
-                <div class="pull-right">
-                    <a href="{{URL::to('admin/bewindvoering/add')}}" class="btn btn-primary">Add Bewindvoering <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
-                </div>
+            <div class="pull-right">
+                <a href="{{URL::to('admin/blogs/addblog')}}" class="btn btn-primary">Create Blog <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
+            </div>
 
-                <h2>Bewindvoering</h2>
-
-            @elseif(Route::currentRouteName() == 'mentorschap-admin')
-
-                <div class="pull-right">
-                    <a href="{{URL::to('admin/mentorschap/add')}}" class="btn btn-primary">Add Mentorschap <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
-                </div>
-
-                <h2>Mentorschap</h2>
-
-            @elseif(Route::currentRouteName() == 'curatele-admin')
-
-                <div class="pull-right">
-                    <a href="{{URL::to('admin/curatele/add')}}" class="btn btn-primary">Add Curatele <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
-                </div>
-
-                <h2>Curatele</h2>
-
-            @else
-
-                <div class="pull-right">
-                    <a href="{{URL::to('admin/tarieven/add')}}" class="btn btn-primary">Add Tarieven <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
-                </div>
-
-                <h2>Tarieven</h2>
-
-            @endif
+            <h2>Blogs</h2>
 
         </div>
 
@@ -58,6 +34,9 @@
                         <th>Icon</th>
                         <th>Title</th>
                         <th>Button Title</th>
+                        <th>Menu Heading</th>
+                        <th>Homepage Visible</th>
+                        <th>Blog Order</th>
                         <th>Link</th>
 
                         <th class="text-center width-100">Action</th>
@@ -69,7 +48,6 @@
                         <tr>
 
                             <td>
-
                                     @if($blog->image)
 
                                         <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" width="80" alt="">
@@ -79,11 +57,10 @@
                                         ?
 
                                     @endif
-
                             </td>
 
-                            <td>
 
+                            <td>
                                 @if($blog->icon)
 
                                     <img src="{{ URL::asset('upload/blogs/icons/'.$blog->icon) }}" width="30" alt="">
@@ -93,33 +70,32 @@
                                     ?
 
                                 @endif
-
                             </td>
 
                             <td>
 
-                                @if(Route::currentRouteName() == 'bewindvoering-admin')
-
-                                    <a target="_blank" href="{{ url('bewindvoering') }}">{{ $blog->title }}</a>
-
-                                @elseif(Route::currentRouteName() == 'mentorschap-admin')
-
-                                    <a target="_blank" href="{{ url('mentorschap') }}">{{ $blog->title }}</a>
-
-                                @elseif(Route::currentRouteName() == 'curatele-admin')
-
-                                    <a target="_blank" href="{{ url('curatele') }}">{{ $blog->title }}</a>
-
-                                @else
-
-                                    <a target="_blank" href="{{ url('tarieven') }}">{{ $blog->title }}</a>
-
-                                @endif
+                                <a target="_blank" href="{{ url('blogs/'.$blog->slug) }}">{{ $blog->title }}</a>
 
                             </td>
 
                             <td>
                                 {{$blog->button_title}}
+                            </td>
+
+                            <td>
+                                {{$blog->menu_title}}
+                            </td>
+
+                            <td>
+                                @if($blog->visible)
+                                    Yes
+                                @else
+                                    No
+                                @endif
+                            </td>
+
+                            <td>
+                                {{$blog->order_blog}}
                             </td>
 
                             <td>
@@ -136,27 +112,8 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
 
-                                        @if(Route::currentRouteName() == 'bewindvoering-admin')
-
-                                            <li><a href="{{ url('admin/bewindvoering/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/bewindvoering/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
-
-                                        @elseif(Route::currentRouteName() == 'mentorschap-admin')
-
-                                            <li><a href="{{ url('admin/mentorschap/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/mentorschap/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
-
-                                        @elseif(Route::currentRouteName() == 'curatele-admin')
-
-                                            <li><a href="{{ url('admin/curatele/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/curatele/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
-
-                                        @else
-
-                                            <li><a href="{{ url('admin/tarieven/add/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
-                                            <li><a href="{{ url('admin/tarieven/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
-
-                                        @endif
+                                        <li><a href="{{ url('admin/blogs/addblog/'.$blog->id) }}"><i class="md md-edit"></i> Edit Editor</a></li>
+                                        <li><a href="{{ url('admin/blogs/delete/'.$blog->id) }}"><i class="md md-delete"></i> Delete</a></li>
 
                                     </ul>
                                 </div>

@@ -80,35 +80,17 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
         Route::post('tickets/update', 'DashboardController@update');
         Route::post('tickets/send-mail', 'DashboardController@SendMail');
 
+        Route::get('menus', 'BlogsController@MenuHeadings');
+        Route::get('menu/add', 'BlogsController@AddMenuHeading');
+        Route::post('menu/add', 'BlogsController@PostMenuHeading');
+        Route::get('menu/add/{id}', 'BlogsController@EditMenuHeading');
+        Route::get('menu/delete/{id}', 'BlogsController@DeleteMenuHeading');
+
         Route::get('blogs', 'BlogsController@blogslist')->name('blogs');
         Route::get('blogs/addblog', 'BlogsController@addeditblogs')->name('add-blog');
         Route::post('blogs/addblog', 'BlogsController@addnew')->name('post-blog');
         Route::get('blogs/addblog/{id}', 'BlogsController@editblog')->name('edit-blog');
         Route::get('blogs/delete/{id}', 'BlogsController@delete')->name('delete-blog');
-
-        Route::get('bewindvoering', 'BlogsController@blogslist')->name('bewindvoering-admin');
-        Route::get('bewindvoering/add', 'BlogsController@addeditblogs')->name('add-bewindvoering');
-        Route::post('bewindvoering/add', 'BlogsController@addnew')->name('post-bewindvoering');
-        Route::get('bewindvoering/add/{id}', 'BlogsController@editblog')->name('edit-bewindvoering');
-        Route::get('bewindvoering/delete/{id}', 'BlogsController@delete')->name('delete-bewindvoering');
-
-        Route::get('mentorschap', 'BlogsController@blogslist')->name('mentorschap-admin');
-        Route::get('mentorschap/add', 'BlogsController@addeditblogs')->name('add-mentorschap');
-        Route::post('mentorschap/add', 'BlogsController@addnew')->name('post-mentorschap');
-        Route::get('mentorschap/add/{id}', 'BlogsController@editblog')->name('edit-mentorschap');
-        Route::get('mentorschap/delete/{id}', 'BlogsController@delete')->name('delete-mentorschap');
-
-        Route::get('curatele', 'BlogsController@blogslist')->name('curatele-admin');
-        Route::get('curatele/add', 'BlogsController@addeditblogs')->name('add-curatele');
-        Route::post('curatele/add', 'BlogsController@addnew')->name('post-curatele');
-        Route::get('curatele/add/{id}', 'BlogsController@editblog')->name('edit-curatele');
-        Route::get('curatele/delete/{id}', 'BlogsController@delete')->name('delete-curatele');
-
-        Route::get('tarieven', 'BlogsController@blogslist')->name('tarieven-admin');
-        Route::get('tarieven/add', 'BlogsController@addeditblogs')->name('add-tarieven');
-        Route::post('tarieven/add', 'BlogsController@addnew')->name('post-tarieven');
-        Route::get('tarieven/add/{id}', 'BlogsController@editblog')->name('edit-tarieven');
-        Route::get('tarieven/delete/{id}', 'BlogsController@delete')->name('delete-tarieven');
 
         Route::get('properties', 'PropertiesController@propertieslist')->name('properties');
         Route::get('new_constructions', 'PropertiesController@newconstructionslist')->name('new_constructions');
