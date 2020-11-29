@@ -17,24 +17,36 @@
             </div>
           </div>
 
+           @if(getcong('footer_widget1'))
+
            <div class="col-md-3 col-sm-6 col-xs-12">
                <div class="widget">
                    {!!getcong('footer_widget1')!!}
                </div>
            </div>
 
+           @endif
+
+           @if(getcong('footer_widget2'))
+
            <div class="col-md-3 col-sm-6 col-xs-12">
                <div class="widget">
                    {!!getcong('footer_widget2')!!}
                </div>
            </div>
-           <!-- break -->
+
+           @endif
+
+           @if(getcong('footer_widget3'))
+
            <div class="col-md-3 col-sm-6 col-xs-12">
                <div class="widget">
                    {!!getcong('footer_widget3')!!}
 
                </div>
            </div>
+
+           @endif
 
         </div>
         <!-- break -->
