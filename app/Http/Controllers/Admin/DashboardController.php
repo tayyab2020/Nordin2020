@@ -44,11 +44,74 @@ class DashboardController extends MainAdminController
         return view('admin.pages.appointments',compact('details'));
     }
 
+    public function UpdateDetails(Request $request)
+    {
+
+        $post = appointments::where('id',$request->id)->first();
+
+        $post->call_sign = $request->call_sign;
+        $post->initials = $request->initials;
+        $post->first_name = $request->first_name;
+        $post->last_name = $request->last_name;
+        $post->insertions = $request->insertions;
+        $post->postal_code = $request->postal_code;
+        $post->place = $request->place;
+        $post->phone = $request->phone;
+        $post->bsn = $request->bsn;
+        $post->address = $request->address;
+        $post->gender = $request->gender;
+        $post->dob = $request->dob;
+        $post->birthplace = $request->birthplace;
+        $post->nationality = $request->nationality;
+        $post->country = $request->country;
+        $post->marital_status = $request->marital_status;
+        $post->living_situation = $request->living_situation;
+        $post->partner_first_name = $request->partner_first_name;
+        $post->partner_last_name = $request->partner_last_name;
+        $post->partner_insertions = $request->partner_insertions;
+        $post->partner_call_sign = $request->partner_call_sign;
+        $post->partner_gender = $request->partner_gender;
+        $post->partner_dob = $request->partner_dob;
+        $post->partner_birthplace = $request->partner_birthplace;
+        $post->partner_nationality = $request->partner_nationality;
+        $post->partner_country = $request->partner_country;
+        $post->partner_bsn = $request->partner_bsn;
+        $post->registration = $request->registration;
+        $post->measure = $request->measure;
+        $post->name_of_applicant = $request->name_of_applicant;
+        $post->email = $request->email;
+        $post->applicant_phone = $request->applicant_phone;
+        $post->house = $request->house;
+        $post->income = $request->income;
+        $post->bank = $request->bank;
+        $post->account_number = $request->account_number;
+        $post->currently = $request->currently;
+        $post->with_whom = $request->with_whom;
+        $post->reason = $request->reason;
+        $post->save();
+
+        return redirect()->back()->with('flash_message', 'Your information has been updated successfully.');
+    }
+
     public function DetailsById($id)
     {
         $details = appointments::where('id',$id)->first();
 
         return view('admin.pages.appointment',compact('details'));
+    }
+
+    public function EditDetails($id)
+    {
+        $details = appointments::where('id',$id)->first();
+
+        return view('admin.pages.appointment',compact('details'));
+    }
+
+    public function DeleteDetails($id)
+    {
+        appointments::where('id',$id)->delete();
+
+        return redirect()->back()->with('flash_message', 'Deleted successfully.');
     }
 
     public function faq()

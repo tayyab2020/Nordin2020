@@ -710,7 +710,7 @@
                                         <div style="margin-top: 20px;margin-bottom: 20px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin: 0;">
-                                                <button style="outline: none;" type="submit" name="submit" class="btn btn-warning"><i class="fa fa-envelope-o"></i> Bericht versturen</button>
+                                                <button style="outline: none;" type="submit" name="submit" class="btn btn-warning"><i style="margin-right: 5px;font-size: 15px;" class="fa fa-envelope-o"></i> Save</button>
                                             </div>
 
                                         </div>

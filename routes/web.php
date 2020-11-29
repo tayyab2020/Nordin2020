@@ -58,7 +58,10 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
         Route::get('faqs/delete/{id}', 'DashboardController@delete');
 
         Route::get('details', 'DashboardController@Details');
-        Route::get('details/{id}', 'DashboardController@DetailsById');
+        Route::post('details', 'DashboardController@UpdateDetails');
+        Route::get('details/{id}', 'DashboardController@DetailsById')->name('view-details');
+        Route::get('details/edit/{id}', 'DashboardController@EditDetails')->name('edit-details');
+        Route::get('details/delete/{id}', 'DashboardController@DeleteDetails');
 
         Route::get('footer-headings', 'DashboardController@footerHeadings');
         Route::get('footer-headings/add-footer-heading', 'DashboardController@addFooterHeading');
