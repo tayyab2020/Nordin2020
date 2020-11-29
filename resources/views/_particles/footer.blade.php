@@ -110,4 +110,9 @@
 
     .widget ul li a:hover{color: #000000 !important;}
 
+    .copyright .social-links > li > a > .fa
+    {
+        color: #fff !important;
+    }
+
 </style>
