@@ -25,14 +25,6 @@
                                 {{$blog->title}}
                             </h1>
 
-                            <?php $date = $blog->created_at;
-                            $date = date("M d, Y", strtotime($date)); ?>
-
-
-                            <div class="post_meta_top" style="text-align: center;margin-bottom: 20px;">
-                                <span class="post_meta_date">{{$date}}</span>
-                            </div>
-
                             @if($blog->image)
 
                                 <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" style="width: 100%;" alt="{{$blog->title}}">
