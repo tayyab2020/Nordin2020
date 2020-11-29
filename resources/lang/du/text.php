@@ -45,7 +45,7 @@ return [
     'Terms & Conditions' => 'Algemene voorwaarden',
     'Privacy Policy' => 'Privacy beleid',
     'Brought to you by' => 'Met trots aangeboden door',
-    'Stay informed and quickly find, sell or rent your home' => 'Blijf op de hoogte en vind, verkoop of verhuur snel jouw huis',
+    'Stay informed and quickly find, sell or rent your home' => 'Gericht op inzicht en overzicht!',
     'Find real estate members' => 'Voilà, een overzicht van makelaars die voor jou klaarstaan! Makelaars, die niets liever willen dan jou op weg helpen naar jouw volgende thuis.',
     'Agent Name' => 'Zoek op naam makelaar',
     'Search Address, City etc' => 'Zoek op adres of plaats',
