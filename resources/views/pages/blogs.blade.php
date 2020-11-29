@@ -37,10 +37,6 @@
 
                                 <img src="{{ URL::asset('upload/blogs/'.$blog->image) }}" style="width: 100%;" alt="{{$blog->title}}">
 
-                            @else
-
-                                <img src="{{ URL::asset('upload/noImage.png') }}" style="width: 100%;" alt="{{$blog->title}}">
-
                             @endif
 
                     </div>
@@ -52,7 +48,7 @@
                     <div class="blog_posts stander_blog_single_post">
                         <article>
 
-                            <div class="post_content description-content" style="margin-top: 40px;">
+                            <div class="post_content description-content">
                                 {!! $blog->description !!}
                             </div>
 

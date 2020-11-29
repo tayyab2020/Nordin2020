@@ -1006,7 +1006,7 @@ class IndexController extends Controller
                 'phone' => $request->applicant_phone,
             ), function($message)
             {
-                $message->from(getcong('site_email'));
+                $message->from('info@optelbewind.nl');
                 $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name').' Contact');
             });
 
