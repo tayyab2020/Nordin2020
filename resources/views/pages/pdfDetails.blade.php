@@ -30,10 +30,8 @@
 
                                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                                                <img src="{{ url('/assets/img/team03.jpg') }}" style="width: 100px;height: 100px;">
-
                                                 <div class="form-group" style="margin-top: 20px;">
-                                                    <label>Initials * {{url('/assets/img/team03.jpg')}}</label>
+                                                    <label>Initials *</label>
                                                     <input type="text" name="initials" value="{{$details->initials}}" class="form-control" placeholder="Initials *">
                                                 </div>
 

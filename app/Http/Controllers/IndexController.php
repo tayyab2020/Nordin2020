@@ -959,22 +959,6 @@ class IndexController extends Controller
             $incomes = '';
         }
 
-        $details = $request;
-
-        /*return view('pages.pdfDetails',compact('details','incomes'));*/
-
-        $filename = 'abc.pdf';
-
-        ini_set('max_execution_time', 180);
-
-        $pdf = PDF::loadView('pages.pdfDetails',compact('details','incomes'))->setPaper('letter', 'portrait')->setOptions(['dpi' => 140]);
-
-        $pdf->save(public_path().'/upload/DetailsPDF/'.$filename);
-
-        return $pdf->download($filename);
-
-        exit();
-
         $post = new appointments();
         $post->call_sign = $request->call_sign;
         $post->initials = $request->initials;
@@ -1035,22 +1019,20 @@ class IndexController extends Controller
 
         $file = public_path().'/upload/DetailsPDF/'.$filename;
 
-        exit();
-
-        /*Mail::send('emails.appointment',
+        Mail::send('emails.appointment',
             array(
                 'name' => $request->name_of_applicant,
                 'email' => $request->email,
                 'phone' => $request->applicant_phone,
             ), function ($message) use($file,$filename) {
                 $message->from('info@optelbewind.nl');
-                $message->to('tayyabkhurram62@gmail.com', getcong('site_name'))->subject(getcong('site_name'));
+                $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name'));
 
                 $message->attach($file, [
                     'as' => $filename,
                     'mime' => 'application/pdf',
                 ]);
-            });*/
+            });
 
         return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
     }
