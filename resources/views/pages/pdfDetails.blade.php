@@ -2,6 +2,8 @@
 
 @section("content")
 
+    <img class="img-fluid" src="{{ public_path('assets/img/biscuit.png') }}" style="width:50%; height:100%;margin-bottom: 30px;">
+
         <div id="content">
             <div class="container">
                 <div class="row">
@@ -30,8 +32,10 @@
 
                                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
+                                                <img src="{{ public_path('assets/img/biscuit.png')}}" style="width: 100px;height: 100px;">
+
                                                 <div class="form-group" style="margin-top: 20px;">
-                                                    <label>Initials *</label>
+                                                    <label>Initials * {{public_path('assets/img/biscuit.png')}}</label>
                                                     <input type="text" name="initials" value="{{$details->initials}}" class="form-control" placeholder="Initials *">
                                                 </div>
 
