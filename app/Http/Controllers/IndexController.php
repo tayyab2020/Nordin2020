@@ -971,6 +971,8 @@ class IndexController extends Controller
 
         $pdf->save(public_path().'/upload/DetailsPDF/'.$filename);
 
+        return $pdf->download($filename);
+
         exit();
 
         $post = new appointments();
