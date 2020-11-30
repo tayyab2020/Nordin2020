@@ -38,6 +38,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+use PDF;
 
 class IndexController extends Controller
 {
@@ -958,6 +959,20 @@ class IndexController extends Controller
             $incomes = '';
         }
 
+        $details = $request;
+
+        /*return view('pages.pdfDetails',compact('details','incomes'));*/
+
+        $filename = 'abc.pdf';
+
+        ini_set('max_execution_time', 180);
+
+        $pdf = PDF::loadView('pages.pdfDetails',compact('details','incomes'))->setPaper('letter', 'portrait')->setOptions(['dpi' => 140]);
+
+        $pdf->save(public_path().'/upload/DetailsPDF/'.$filename);
+
+        exit();
+
         $post = new appointments();
         $post->call_sign = $request->call_sign;
         $post->initials = $request->initials;
@@ -1000,16 +1015,40 @@ class IndexController extends Controller
         $post->reason = $request->reason;
         $post->save();
 
-        Mail::send('emails.appointment',
+        $details = $request;
+
+        /*return view('pages.pdfDetails',compact('details','incomes'));*/
+
+        $date = strtotime($post->created_at);
+
+        $number = date("Y", $date) . "-" . sprintf('%04u', $post->id);
+
+        $filename = $number.'.pdf';
+
+        ini_set('max_execution_time', 180);
+
+        $pdf = PDF::loadView('pages.pdfDetails',compact('details','incomes'))->setPaper('letter', 'portrait')->setOptions(['dpi' => 140]);
+
+        $pdf->save(public_path().'/upload/DetailsPDF/'.$filename);
+
+        $file = public_path().'/upload/DetailsPDF/'.$filename;
+
+        exit();
+
+        /*Mail::send('emails.appointment',
             array(
                 'name' => $request->name_of_applicant,
                 'email' => $request->email,
                 'phone' => $request->applicant_phone,
-            ), function($message)
-            {
+            ), function ($message) use($file,$filename) {
                 $message->from('info@optelbewind.nl');
-                $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name'));
-            });
+                $message->to('tayyabkhurram62@gmail.com', getcong('site_name'))->subject(getcong('site_name'));
+
+                $message->attach($file, [
+                    'as' => $filename,
+                    'mime' => 'application/pdf',
+                ]);
+            });*/
 
         return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
     }

@@ -47,7 +47,7 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;box-shadow: -1px 2px 15px 6px #dbdbdb38;background-color: white;border-radius: 10px;">
 
                                                     <div class="blog-title" style="padding: 0;margin-bottom: 0;">
-                                                        <h3 style="font-weight: 600;font-size: 30px;text-align: center;">Detail of the person</h3>
+                                                        <h3 style="font-weight: 600;font-size: 30px;text-align: center;">Details of the person</h3>
                                                     </div>
 
                                                     {!! Form::open(array('url' => 'admin/details','role'=>'form')) !!}
