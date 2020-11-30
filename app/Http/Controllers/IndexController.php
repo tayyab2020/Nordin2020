@@ -1019,9 +1019,7 @@ class IndexController extends Controller
 
         $file = public_path().'/upload/DetailsPDF/'.$filename;
 
-        exit();
-
-        /*Mail::send('emails.appointment',
+        Mail::send('emails.appointment',
             array(
                 'name' => $request->name_of_applicant,
                 'email' => $request->email,
@@ -1034,7 +1032,7 @@ class IndexController extends Controller
                     'as' => $filename,
                     'mime' => 'application/pdf',
                 ]);
-            });*/
+            });
 
         return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
     }
