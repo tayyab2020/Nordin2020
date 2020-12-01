@@ -31,6 +31,9 @@
                         <div class="blog-text contact" style="padding: 0;">
                             <div class="row" style="margin: 0;">
 
+                                <?php $img = url("upload/".getcong('site_logo')); ?>
+
+                                    <img class="img-fluid" src="{{$img}}" style="width:50%; height:200px;">
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;box-shadow: -1px 2px 15px 6px #dbdbdb38;background-color: white;border-radius: 10px;">
 
@@ -49,14 +52,8 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                                        <?php $img = public_path('assets\img\img01.jpg'); $img1 = asset('assets/img/img01.jpg'); $img2 = url('assets/img/img01.jpg'); ?>
-
-                                        <img class="img-fluid" src="{{$img2}}" style="width:50%; height:200px;">
-                                            <img class="img-fluid" src="https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg" style="width:50%; height:200px;">
-
-
                                         <div class="form-group" style="margin-top: 20px;">
-                                            <label>Initials * {{$img2}}</label>
+                                            <label>Initials *</label>
                                             <input type="text" name="initials" value="{{$details->initials}}" class="form-control" placeholder="Initials *">
                                         </div>
 
