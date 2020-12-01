@@ -2,21 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="GeniusOcean">
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,800' rel='stylesheet' type='text/css'>
-    <link href="{{asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">
 
-
-    <link href="{{asset('assets/css/'.getcong('site_style').'.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
 
 </head>
 
@@ -50,8 +43,14 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
+                                        <?php $img = public_path('assets\img\img01.jpg'); $img1 = asset('assets/img/img01.jpg'); $img2 = url('assets/img/img01.jpg'); ?>
+
+                                        <img class="img-fluid" src="{{$img2}}" style="width:50%; height:200px;">
+                                            <img class="img-fluid" src="https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg" style="width:50%; height:200px;">
+
+
                                         <div class="form-group" style="margin-top: 20px;">
-                                            <label>Initials *</label>
+                                            <label>Initials * {{$img2}}</label>
                                             <input type="text" name="initials" value="{{$details->initials}}" class="form-control" placeholder="Initials *">
                                         </div>
 

@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "barryvdh/laravel-dompdf": "^0.8.7",
+        "barryvdh/laravel-dompdf": "0.8.6",
         "elic-dev/laravel-site-protection": "^1.0",
         "fideloper/proxy": "^4.0",
         "intervention/image": "dev-master",

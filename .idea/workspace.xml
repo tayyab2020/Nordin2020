@@ -2,9 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fe7f36f-c82f-4504-8c0a-7874522d22c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0042.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0047.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0048.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0049.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0050.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0051.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0052.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0053.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0054.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0055.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0056.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0057.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0058.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/2020-0059.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/2fab58b53c609f76b14030abc6939355.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/2fab58b53c609f76b14030abc6939355.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/2fab58b53c609f76b14030abc6939355.ufm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/9d127a2f81c4cacaa83f82fc40ffef16.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/9d127a2f81c4cacaa83f82fc40ffef16.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/9d127a2f81c4cacaa83f82fc40ffef16.ufm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-Bold.afm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica.afm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Bold.afm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Roman.afm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/dompdf_font_family_cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/raleway-600_1c285e130fc4e97cbd01970101450315.ufm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/raleway-800_8ec212262b1c8ba8170a6e957bf2ceb2.ufm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/raleway-normal_455a37b3559c304142e7ce6cbe5fb9f5.ufm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel_divine_home.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_divine_home.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/DetailsPDF/abc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/public/upload/DetailsPDF/abc.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/pdfDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/pdfDetails.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,6 +190,13 @@
       <path value="$PROJECT_DIR$/vendor/elic-dev/laravel-site-protection" />
       <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Zklb5zt9aR1X7iWr7TsMj800DL" />
@@ -299,7 +337,7 @@
       <workItem from="1606388181293" duration="1171000" />
       <workItem from="1606420269358" duration="40733000" />
       <workItem from="1606583234770" duration="31792000" />
-      <workItem from="1606671741907" duration="21356000" />
+      <workItem from="1606671741907" duration="28496000" />
     </task>
     <servers />
   </component>
@@ -330,10 +368,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="329" y="14" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1599732083041" />
-    <state x="452" y="123" width="805" height="606" key="find.popup" timestamp="1606679719522">
+    <state x="452" y="123" width="805" height="606" key="find.popup" timestamp="1606810331630">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="452" y="123" width="805" height="606" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1606679719522" />
+    <state x="452" y="123" width="805" height="606" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1606810331630" />
     <state x="455" y="258" width="705" height="307" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1604393886184">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -959,6 +959,19 @@ class IndexController extends Controller
             $incomes = '';
         }
 
+        $details = $request;
+
+        $filename = 'abc.pdf';
+
+        ini_set('max_execution_time', 180);
+
+        $pdf = PDF::loadView('pages.pdfDetails',compact('details','incomes'))->setPaper('letter', 'portrait')->setOptions(['dpi' => 140,'isRemoteEnabled' => true]);
+
+
+        $pdf->save(public_path().'/upload/DetailsPDF/'.$filename);
+
+        exit();
+
         $post = new appointments();
         $post->call_sign = $request->call_sign;
         $post->initials = $request->initials;
@@ -1013,13 +1026,13 @@ class IndexController extends Controller
 
         ini_set('max_execution_time', 180);
 
-        $pdf = PDF::loadView('pages.pdfDetails',compact('details','incomes'))->setPaper('letter', 'portrait')->setOptions(['dpi' => 140]);
+        $pdf = PDF::loadView('pages.pdfDetails',compact('details','incomes'))->setPaper('letter', 'portrait')->setOptions(['dpi' => 140, 'isRemoteEnabled', TRUE]);
 
         $pdf->save(public_path().'/upload/DetailsPDF/'.$filename);
 
         $file = public_path().'/upload/DetailsPDF/'.$filename;
 
-        Mail::send('emails.appointment',
+        /*Mail::send('emails.appointment',
             array(
                 'name' => $request->name_of_applicant,
                 'email' => $request->email,
@@ -1032,7 +1045,7 @@ class IndexController extends Controller
                     'as' => $filename,
                     'mime' => 'application/pdf',
                 ]);
-            });
+            });*/
 
         return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
     }
