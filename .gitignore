@@ -11,6 +11,7 @@
 /public/upload/slides
 /public/upload/testimonial
 /public/upload/tickets
+/public/upload/DetailsPDF
 /public/storage
 /storage/*.key
 /vendor
