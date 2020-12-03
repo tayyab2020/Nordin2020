@@ -40,9 +40,6 @@
                                       <?php
 
                                       $description = $blog->homepage_description;
-                                      $description = preg_replace(array('#<[^>]+>#','#&nbsp;#'), ' ', $description);
-                                      $description = preg_replace('/\s+/', ' ', $description);
-                                      $words_limit = 230;
 
                                       $link = $blog->link;
 
@@ -59,10 +56,10 @@
 
                                       <li style="display: flex;flex-direction: column;">
 
-                                          <p style="margin-bottom: 0;height: auto;" target="_blank" href="#">
-                                              {!! Str::limit($description,$words_limit) !!}
+                                          <div class="text-div" style="margin-bottom: 0;height: auto;" target="_blank" href="#">
+                                              {!! $description !!}
                                               {{--@if(mb_strlen($description, "UTF-8") > $words_limit) <a href="{{$url}}">Read More</a> @endif--}}
-                                          </p>
+                                          </div>
 
                                           <div style="width: 100%;">
 
@@ -294,9 +291,11 @@
 
     @media(min-width:1021px){.css-48sroz li{font-size:18px;text-align:center;box-shadow:0 1px 3px 0 rgba(30,41,61,0.1),0 1px 2px 0 rgba(30,41,61,0.2);}}
 
-    .css-48sroz p{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:block;min-height: 80%;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 95%;}
+    .css-48sroz .text-div{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit;display:block;min-height: 80%;padding:12px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size: 95%;}
 
-    @media(min-width:1021px){.css-48sroz p{display:block;padding:20px 18px;height:100%;}}
+    @media(min-width:1021px){.css-48sroz .text-div{display:block;padding:20px 18px;height:100%;}}
+
+    .css-48sroz p{text-overflow: ellipsis;display: -webkit-box;width: 100%;visibility: visible;-webkit-line-clamp: 6;-webkit-box-orient: vertical;overflow: hidden;}
 
     .css-jeyium{stroke-linejoin:round;stroke-linecap:round;fill:none;vertical-align:middle;width:24px;height:24px;}
 
