@@ -40,7 +40,6 @@
                                       <?php
 
                                       $description = $blog->homepage_description;
-
                                       $link = $blog->link;
 
                                       if(!$link)
