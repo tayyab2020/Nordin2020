@@ -61,15 +61,6 @@
 
   <body id="top" class="body-padding-top">
 
-  <style>
-      @media screen and (min-width: 1201px)
-      {
-          .body-padding-top
-          {
-              padding-top: 85px !important;
-          }
-      }
-  </style>
 
 	  @include("_particles.header")
 
@@ -177,6 +168,17 @@
   <script>
 
       $(document).ready(function() { //Make script DOM ready
+
+          /* backstretch slider */
+          $('.header-slide').backstretch([
+              @foreach(\App\Slider::orderBy('name')->get() as $slide)
+                  "{{ URL::asset('upload/slides/'.$slide->image_name.'.jpg') }}",
+
+              @endforeach
+          ], {
+              fade: 850,
+              duration: 4000
+          });
 
           $('.dropdown-lng').click(function () {
 

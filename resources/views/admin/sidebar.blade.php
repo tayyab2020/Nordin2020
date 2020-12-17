@@ -34,6 +34,8 @@
 
                     <li class="{{classActivePath('faqs')}}"><a href="{{ URL::to('admin/faqs') }}"><i class="fa fa-question"></i> FAQ's</a></li>
 
+                    <li class="{{classActivePath('slider')}}"><a href="{{ URL::to('admin/slider') }}"><i class="fa fa-sliders"></i>Home Slider</a></li>
+
                     <li class="{{classActivePath('details')}}"><a href="{{ URL::to('admin/details') }}"><i class="fa fa-list"></i> Details</a></li>
 
                     <li class="{{classActivePath('menus')}}"><a href="{{ URL::to('admin/menus') }}"><i class="fa fa-list"></i> Menu Headings</a></li>

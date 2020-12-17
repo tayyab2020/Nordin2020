@@ -1,7 +1,6 @@
 @extends("app")
 @section("content")
 
-
 <!-- begin:content -->
     <div id="content" style="padding: 50px 0px 0px 0px;margin-bottom: 30px;">
 
@@ -25,9 +24,11 @@
 
       <div class="container" style="width: 100%;">
 
-              <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12" style="display: flex;">
+              <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
-                  <div data-testid="key-services" class="css-htlmaj col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;">
+                  @include("_particles.slidersearch")
+
+                  <div data-testid="key-services" class="css-htlmaj col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;margin-top: 30px;">
 
                       <div>
 
