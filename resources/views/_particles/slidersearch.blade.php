@@ -1,7 +1,7 @@
 <!-- begin:header -->
-<div id="header" class="header-slide" style="min-height: 350px;">
+<div id="header" class="header-slide" style="min-height: 350px;display: flex;padding: 0;align-items: center;">
 
-    <div class="container" style="margin-top: 8%;width: 100%;">
+    <div class="container" style="width: 100%;">
 
         <h2 style="margin: 0;text-align: center;color: white;text-shadow: -3px 2px 11px #252424;font-size: 36px;position: relative;" class="css-ce6ko1 top-heading">Samen lossen we het op.</h2>
 
