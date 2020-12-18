@@ -1226,27 +1226,43 @@ class IndexController extends Controller
 
 	    $inputs = $request->all();
 
-	    $rule=array(
-		        'name' => 'required',
-				'email' => 'required|email',
-		        'phone' => 'required',
-		        'user_message' => 'required'
-		   		 );
-
-	   	 $validator = \Validator::make($data,$rule);
-
-        if ($validator->fails())
+	    if($request->time_slot == 'Ik wil liever mailcontact')
         {
-                return redirect()->back()->withErrors($validator->messages());
+            $rule=array(
+                'name' => 'required',
+                'email' => 'required|email',
+                'user_message' => 'required'
+            );
+        }
+	    else
+        {
+            $rule=array(
+                'name' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required',
+                'user_message' => 'required'
+            );
         }
 
+        $messages = [
+            'name.required' => 'Naam is een verplicht veld',
+            'email.required' => 'Email is een verplicht veld',
+            'phone.required' => 'Telefoonnummer is een verplicht veld',
+            ];
+
+	   	 $validator = \Validator::make($data,$rule,$messages);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator->messages());
+        }
 
 
         Mail::send('emails.contact',
         array(
             'name' => $inputs['name'],
             'email' => $inputs['email'],
-            'phone' => $inputs['phone'],
+            'phone' => $request->phone,
             'time_slot' => $inputs['time_slot'],
             'user_message' => $inputs['user_message']
         ), function($message)
@@ -1257,7 +1273,7 @@ class IndexController extends Controller
 
 
 
- 		 return redirect()->back()->with('flash_message', 'Thanks for contacting us!');
+ 		 return redirect()->back()->with('flash_message', 'Change in: Bedankt.U krijgt zo spoedig mogelijk bericht!');
     }
 
 

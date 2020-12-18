@@ -124,7 +124,7 @@
 
                       @if($settings->faq_banner)
 
-                          <img src="{{ URL::asset('assets/img/Career-in-Counseling_Image-1.jpg') }}" style="width: 100%;margin-top: 10px;" aria-hidden="true">
+                          <img src="{{ URL::asset('upload/faq_banner/'.$settings->faq_banner) }}" style="width: 100%;margin-top: 10px;" aria-hidden="true">
 
                       @endif
 
