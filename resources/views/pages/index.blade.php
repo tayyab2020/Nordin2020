@@ -100,7 +100,7 @@
                               @foreach($faqs as $key)
 
                                   <li class="cd-faq__item">
-                                      <a class="cd-faq__trigger" href="#0"><span>{{$key->question}}</span></a>
+                                      <a class="cd-faq__trigger" style="color: #4fc1e9;" href="#0"><span>{{$key->question}}</span></a>
                                       <div class="cd-faq__content">
                                           <div class="text-component">
                                               {!! $key->answer !!}
@@ -149,6 +149,11 @@
     label
     {
         font-size: 11px;
+    }
+
+    .cd-faq__trigger::before, .cd-faq__trigger::after
+    {
+        background: #4fc1e9 !important;
     }
 
     .cd-faq__item

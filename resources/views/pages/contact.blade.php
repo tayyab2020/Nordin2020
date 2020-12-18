@@ -132,7 +132,7 @@
                               </div>
 
                               <div class="form-group" style="margin: 0;">
-                                  <button type="submit" name="submit" class="btn btn-warning"><i class="fa fa-envelope-o"></i> Bericht versturen</button>
+                                  <button style="outline: none;" type="submit" name="submit" class="btn btn-warning"><i class="fa fa-envelope-o"></i> Bericht versturen</button>
                               </div>
 
                               {!! Form::close() !!} <br>
