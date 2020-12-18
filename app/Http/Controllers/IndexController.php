@@ -1268,7 +1268,7 @@ class IndexController extends Controller
         ), function($message)
 	    {
 	        $message->from(getcong('site_email'));
-	        $message->to(getcong('site_email'), getcong('site_name'))->subject(getcong('site_name').' Contact');
+	        $message->to('tayyabkhurram62@gmail.com', getcong('site_name'))->subject(getcong('site_name').' Contact');
 	    });
 
 
