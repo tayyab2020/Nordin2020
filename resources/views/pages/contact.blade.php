@@ -72,7 +72,7 @@
 
                                   <div style="position: relative;width: 100%;">
 
-                                      <h4 style="margin-bottom: 20px;">When do you prefer to be called?</h4>
+                                      <h4 style="margin-bottom: 20px;">Wanneer wilt u gebeld worden?</h4>
 
                                       <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label" style="width: 100%;min-height: 50px;text-align: left;">
 
@@ -89,15 +89,15 @@
                                           </label>
 
                                           <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                              <input type="radio" name="time_slot" value="after 18:00"/>
+                                              <input type="radio" name="time_slot" value="Na 18:00 uur"/>
                                               <span class="radio"></span>
-                                              <span class="label">After 18:00</span>
+                                              <span class="label">Na 18:00 uur</span>
                                           </label>
 
                                           <label style="margin-left: 5px;display: block;margin-top: 10px;">
-                                              <input type="radio" name="time_slot" value="I dont want to be called"/>
+                                              <input type="radio" name="time_slot" value="Ik wil liever mailcontact"/>
                                               <span class="radio"></span>
-                                              <span class="label">I dont want to be called</span>
+                                              <span class="label">Ik wil liever mailcontact</span>
                                           </label>
 
                                       </div>
@@ -117,8 +117,8 @@
                               </div>
 
                               <div class="form-group">
-                                  <label for="email" class="sr-only">Phone Number</label>
-                                  <input type="text" name="phone" class="form-control" placeholder="Phone Number">
+                                  <label for="email" class="sr-only">Telefoonnummer</label>
+                                  <input type="text" name="phone" class="form-control" placeholder="Telefoonnummer">
                               </div>
 
                               <div class="form-group">
