@@ -91,7 +91,7 @@ class DashboardController extends MainAdminController
         $post->reason = $request->reason;
         $post->save();
 
-        return redirect()->back()->with('flash_message', 'Your information has been updated successfully.');
+        return redirect()->back()->with('flash_message', 'Uw aanvraag is succesvol verstuurd. U krijgt zo spoedig mogelijk bericht van ons!');
     }
 
     public function DetailsById($id)

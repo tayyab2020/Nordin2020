@@ -135,7 +135,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type="text" name="bsn" class="form-control" placeholder="BSN*" required>
+                                                <input type="text" name="bsn" class="form-control" placeholder="BSN">
                                             </div>
 
                                         </div>
@@ -189,7 +189,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Geboorteplaats*" name="birthplace" class="form-control" required />
+                                                <input type='text' placeholder="Geboorteplaats" name="birthplace" class="form-control" />
                                             </div>
 
                                         </div>
@@ -197,7 +197,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Nationaliteit*" name="nationality" class="form-control" required />
+                                                <input type='text' placeholder="Nationaliteit" name="nationality" class="form-control" />
                                             </div>
 
                                         </div>
@@ -205,7 +205,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Land van herkomst*" name="country" class="form-control" required />
+                                                <input type='text' placeholder="Land van herkomst" name="country" class="form-control" />
                                             </div>
 
                                         </div>
@@ -648,7 +648,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Naam bank*" name="bank" class="form-control" required />
+                                                <input type='text' placeholder="Naam bank" name="bank" class="form-control" />
                                             </div>
 
                                         </div>
@@ -656,7 +656,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                                             <div class="form-group" style="margin-top: 20px;">
-                                                <input type='text' placeholder="Rekeningnummer*" name="account_number" class="form-control" required />
+                                                <input type='text' placeholder="Rekeningnummer" name="account_number" class="form-control" />
                                             </div>
 
                                         </div>
