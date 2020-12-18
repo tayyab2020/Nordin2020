@@ -12,6 +12,7 @@
 /public/upload/testimonial
 /public/upload/tickets
 /public/upload/DetailsPDF
+/public/upload/faq_banner
 /public/storage
 /storage/*.key
 /vendor
