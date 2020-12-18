@@ -1273,7 +1273,7 @@ class IndexController extends Controller
 
 
 
- 		 return redirect()->back()->with('flash_message', 'Change in: Bedankt.U krijgt zo spoedig mogelijk bericht!');
+ 		 return redirect()->back()->with('flash_message', 'Bedankt.U krijgt zo spoedig mogelijk bericht!');
     }
 
 
