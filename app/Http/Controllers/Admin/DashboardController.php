@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\appointments;
 use App\footer_headings;
 use App\footer_pages;
+use App\Settings;
 use Auth;
 use App\User;
 use App\Properties;
@@ -182,6 +183,82 @@ class DashboardController extends MainAdminController
             return \Redirect::back();
 
         }
+
+
+    }
+
+    public function addeditfaqbanner(){
+
+        if(Auth::User()->usertype!="Admin"){
+
+            Session::flash('flash_message', 'Access denied!');
+
+            return redirect('admin/dashboard');
+
+        }
+
+        $banner = Settings::select('faq_banner')->findOrFail('1');
+
+        return view('admin.pages.addeditfaqbanner',compact('banner'));
+    }
+
+    public function addnewfaqbanner(Request $request)
+    {
+
+        $data =  \Request::except(array('_token')) ;
+
+        $inputs = $request->all();
+
+        /*$rule=array(
+            'question' => 'required',
+            'answer' => 'required',
+        );
+
+        $validator = \Validator::make($data,$rule);
+
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator->messages());
+        }*/
+
+
+        if(!empty($inputs['image'])){
+
+            //Slide image
+            $t_user_image = $request->file('image');
+
+            if($t_user_image) {
+
+                $banner = Settings::findOrFail('1');
+
+                \File::delete(public_path() . '/upload/faq_banner/' . $banner->faq_banner);
+
+                $tmpFilePath = 'upload/faq_banner/';
+
+                $filename = $_FILES['image']['name'];
+
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                $hardPath =  'faq_banner'.'-'.md5(time());
+
+                $image_file = $hardPath . '.' . $ext;
+
+                $target_file = $tmpFilePath . $image_file;
+
+                $img = Image::make($t_user_image);
+
+                $img->save($target_file);
+
+                $banner->faq_banner = $image_file;
+                $banner->save();
+
+            }
+
+        }
+
+        \Session::flash('flash_message', __('text.Changes Saved'));
+
+        return \Redirect::back();
 
 
     }

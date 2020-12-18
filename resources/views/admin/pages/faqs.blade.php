@@ -5,6 +5,7 @@
         <div class="page-header">
 
                 <div class="pull-right">
+                    <a href="{{URL::to('admin/faqs/addfaqbanner')}}" class="btn btn-primary">Add FAQ Banner <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
                     <a href="{{URL::to('admin/faqs/addfaq')}}" class="btn btn-primary">Add FAQ <i style="margin-left: 5px;position: relative;top: 1px;" class="fa fa-plus"></i></a>
                 </div>
 

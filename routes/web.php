@@ -57,6 +57,9 @@ Route::group(['middleware' => 'App\Http\Middleware\UserTypeMiddleware'], functio
         Route::get('faqs/addfaq/{id}', 'DashboardController@editfaq');
         Route::get('faqs/delete/{id}', 'DashboardController@delete');
 
+        Route::get('faqs/addfaqbanner', 'DashboardController@addeditfaqbanner');
+        Route::post('faqs/addfaqbanner', 'DashboardController@addnewfaqbanner');
+
         Route::get('details', 'DashboardController@Details');
         Route::post('details', 'DashboardController@UpdateDetails');
         Route::get('details/{id}', 'DashboardController@DetailsById')->name('view-details');

@@ -122,7 +122,11 @@
 
                   <div style="width: 100%;">
 
-                      <img src="{{ URL::asset('assets/img/Career-in-Counseling_Image-1.jpg') }}" style="width: 100%;margin-top: 10px;" aria-hidden="true">
+                      @if($settings->faq_banner)
+
+                          <img src="{{ URL::asset('assets/img/Career-in-Counseling_Image-1.jpg') }}" style="width: 100%;margin-top: 10px;" aria-hidden="true">
+
+                      @endif
 
                       <a href="{{ URL::to('details') }}" class="btn btn-primary b-text" style="margin-top: 20px;width: 100%;padding: 15px;font-size: 20px;outline: none;">Direct aanmelden!</a>
 

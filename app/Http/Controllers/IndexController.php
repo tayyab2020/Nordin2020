@@ -940,7 +940,9 @@ class IndexController extends Controller
 
         $faqs = faqs::orderBy('id', 'desc')->take(5)->get();
 
-        return view('pages.index',compact('faqs','blogs'));
+        $settings = Settings::select('faq_banner')->findOrFail('1');
+
+        return view('pages.index',compact('faqs','blogs','settings'));
     }
 
     public function Appointment()
