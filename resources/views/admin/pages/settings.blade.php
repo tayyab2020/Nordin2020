@@ -104,8 +104,7 @@
                         <div class="media">
                             <div class="media-left">
                                 @if($settings->site_favicon)
-
-									<img src="{{ URL::asset('upload/'.$settings->site_favicon) }}" alt="person">
+									<img src="{{ URL::asset('upload/'.$settings->site_favicon) }}" width="150" alt="person">
 								@endif
 
                             </div>
