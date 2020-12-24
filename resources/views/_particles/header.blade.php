@@ -180,7 +180,7 @@
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+31633487916", // WhatsApp number
+            whatsapp: "+310640624975", // WhatsApp number
             call_to_action: "Message us", // Call to action
             position: "left", // Position may be 'right' or 'left'
         };
