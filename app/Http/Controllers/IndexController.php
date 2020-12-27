@@ -1036,7 +1036,7 @@ class IndexController extends Controller
                 ]);
             });
 
-        return redirect()->back()->with('flash_message', 'Your information has been submitted successfully.');
+        return redirect()->back()->with('flash_message', 'Jouw aanmelding is succesvol verzonden, wij nemen zo spoedig mogelijk contact met op!');
     }
 
     public function Blogs()
